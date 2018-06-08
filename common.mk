@@ -224,6 +224,7 @@ PRODUCT_PACKAGES += \
 # Overlay
 PRODUCT_PACKAGES += \
     FrameworkResOverlayCommon \
+    LineageSDKCommon \
     SystemUIOverlayCommon \
     SettingsOverlayCommon \
     WifiOverlayCommon
