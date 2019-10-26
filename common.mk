@@ -245,7 +245,7 @@ PRODUCT_COPY_FILES += \
     vendor/qcom/opensource/power/config/pineapple/powerhint.xml:$(TARGET_COPY_OUT_VENDOR)/etc/powerhint.xml
 
 # Product characteristic
-PRODUCT_CHARACTERISTICS := tablet
+PRODUCT_CHARACTERISTICS := nosdcard,tablet
 
 # QSPA
 PRODUCT_PACKAGES += \
