@@ -61,6 +61,9 @@ TARGET_SCREEN_DENSITY := 345
 # Filesystem
 TARGET_FS_CONFIG_GEN := $(COMMON_PATH)/configs/config.fs
 
+# Graphics
+TARGET_USES_VULKAN := true
+
 # Hardware
 BOARD_USES_QCOM_HARDWARE := true
 
