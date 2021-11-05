@@ -118,6 +118,9 @@ $(foreach p, $(call to-upper, $(BOARD_XIAOMI_DYNAMIC_PARTITIONS_PARTITION_LIST))
 BOARD_PRODUCTIMAGE_MINIMAL_PARTITION_RESERVED_SIZE := false
 include vendor/lineage/config/BoardConfigReservedSize.mk
 
+# Power
+TARGET_POWERHAL_MODE_EXT := $(COMMON_PATH)/power/power-mode.cpp
+
 # Platform
 TARGET_BOARD_PLATFORM := pineapple
 TARGET_BOOTLOADER_BOARD_NAME ?= pineapple
