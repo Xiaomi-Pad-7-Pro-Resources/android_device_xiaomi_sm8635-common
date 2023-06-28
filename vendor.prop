@@ -145,6 +145,7 @@ persist.backup.ntpServer=0.pool.ntp.org
 # Graphics
 debug.egl.hw=0
 debug.mdpcomp.logs=0
+debug.renderengine.backend=skiavkthreaded
 graphics.gpu.profiler.support=true
 ro.gfx.driver.1=com.qualcomm.qti.gpudrivers.pineapple.api34
 ro.opengles.version=196610
