@@ -18,7 +18,7 @@ ndk::ScopedAStatus Lights::setLightState(int id, const HwLightState& state) {
     return ndk::ScopedAStatus::fromExceptionCode(EX_UNSUPPORTED_OPERATION);
 }
 
-ndk::ScopedAStatus Lights::getLights(std::vector<HwLight>* /*lights*/) {
+ndk::ScopedAStatus Lights::getLights(std::vector<HwLight>* lights) {
     LOG(INFO) << "Lights reporting supported lights";
     return ndk::ScopedAStatus::ok();
 }
