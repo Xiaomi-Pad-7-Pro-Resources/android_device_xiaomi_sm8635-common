@@ -119,7 +119,7 @@ int getBatteryStatus()
     }
 }
 
-static void handleNotification(const HwLightState& state) {
+static void handleNotification(int id, const HwLightState& state) {
 
     uint32_t brightness = (state.color >> 24) & 0xFF;
     uint32_t red = ((state.color >> 16) & 0xFF) * brightness / 0xFF;
@@ -140,33 +140,42 @@ static void handleNotification(const HwLightState& state) {
             break;
         case FlashMode::TIMED:
             /* Enable blinking */
-            if (!!red)
+            if (!!red) {
                 set(RED_LED LED_DELAY_ON, state.flashOnMs);
                 set(RED_LED LED_DELAY_OFF, state.flashOffMs);
+            }
 
-            if (!!green)
+            if (!!green) {
                 set(GREEN_LED LED_DELAY_ON, state.flashOnMs);
                 set(GREEN_LED LED_DELAY_OFF, state.flashOffMs);
+            }
 
-            if (!!blue)
+            if (!!blue) {
                 set(BLUE_LED LED_DELAY_ON, state.flashOnMs);
                 set(BLUE_LED LED_DELAY_OFF, state.flashOffMs);
+            }
             break;
         case FlashMode::NONE:
         default:
-        int battery_state = getBatteryStatus();
-        if (battery_state == BATTERY_CHARGING || battery_state == BATTERY_LOW) {
-                set(GREEN_LED LED_BRIGHTNESS, 0);
-                set(BLUE_LED LED_BRIGHTNESS, 0);
-                set(RED_LED LED_BRIGHTNESS, red);
-            } else if (battery_state == BATTERY_FULL) {
-                set(RED_LED LED_BRIGHTNESS, 0);
-                set(BLUE_LED LED_BRIGHTNESS, 0);
+            int battery_state = getBatteryStatus();
+            if (id == (int) LightType::BATTERY) {
+                if (battery_state == BATTERY_CHARGING || battery_state == BATTERY_LOW) {
+                    set(GREEN_LED LED_BRIGHTNESS, 0);
+                    set(BLUE_LED LED_BRIGHTNESS, 0);
+                    set(RED_LED LED_BRIGHTNESS, red);
+                } else if (battery_state == BATTERY_FULL) {
+                    set(RED_LED LED_BRIGHTNESS, 0);
+                    set(BLUE_LED LED_BRIGHTNESS, 0);
+                    set(GREEN_LED LED_BRIGHTNESS, green);
+                } else if (battery_state == BATTERY_FREE) {
+                    set(RED_LED LED_BRIGHTNESS, 0);
+                    set(GREEN_LED LED_BRIGHTNESS, 0);
+                    set(BLUE_LED LED_BRIGHTNESS, 0);
+                }
+            } else if (id == (int) LightType::NOTIFICATIONS) {
                 set(GREEN_LED LED_BRIGHTNESS, green);
-            } else if (battery_state == BATTERY_FREE) {
-                set(RED_LED LED_BRIGHTNESS, 0);
-                set(GREEN_LED LED_BRIGHTNESS, 0);
-                set(BLUE_LED LED_BRIGHTNESS, 0);
+                set(BLUE_LED LED_BRIGHTNESS, blue);
+                set(RED_LED LED_BRIGHTNESS, red);
             }
             break;
     }
@@ -191,13 +200,13 @@ ndk::ScopedAStatus Lights::setLightState(int id, const HwLightState& state) {
     LOG(INFO) << "Lights setting state for id=" << id << " to color " << std::hex << state.color;
     switch(id) {
         case (int) LightType::ATTENTION:
-            handleNotification(state);
+            handleNotification(id, state);
             return ndk::ScopedAStatus::ok();
         case (int) LightType::BATTERY:
-            handleNotification(state);
+            handleNotification(id, state);
             return ndk::ScopedAStatus::ok();
         case (int) LightType::NOTIFICATIONS:
-            handleNotification(state);
+            handleNotification(id, state);
             return ndk::ScopedAStatus::ok();
         default:
             return ndk::ScopedAStatus::fromExceptionCode(EX_UNSUPPORTED_OPERATION);
