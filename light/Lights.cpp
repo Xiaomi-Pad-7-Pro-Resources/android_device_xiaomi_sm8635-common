@@ -122,6 +122,10 @@ int getBatteryStatus()
 static void handleNotification(int id, const HwLightState& state) {
 
     uint32_t brightness = (state.color >> 24) & 0xFF;
+
+    if (brightness == 0)
+        brightness = 0xFF;
+
     uint32_t red = ((state.color >> 16) & 0xFF) * brightness / 0xFF;
     uint32_t green = ((state.color >> 8) & 0xFF) * brightness / 0xFF;
     uint32_t blue = (state.color & 0xFF) * brightness / 0xFF;
