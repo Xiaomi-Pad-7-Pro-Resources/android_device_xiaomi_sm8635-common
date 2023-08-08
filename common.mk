@@ -232,6 +232,10 @@ PRODUCT_PACKAGES += \
     vendor_dsp_mountpoint \
     vendor_firmware_mnt_mountpoint
 
+# Peripheral Manager
+PRODUCT_PACKAGES += \
+    XiaomiPeripheralManager
+
 # Power
 PRODUCT_PACKAGES += \
     android.hardware.power-service-qti
