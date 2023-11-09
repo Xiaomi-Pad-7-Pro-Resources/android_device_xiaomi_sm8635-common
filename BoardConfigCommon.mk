@@ -76,6 +76,7 @@ BOARD_BOOTCONFIG := \
     androidboot.hardware=qcom \
     androidboot.load_modules_parallel=true \
     androidboot.memcg=1 \
+    androidboot.vendor.qspa=true \
     androidboot.usbcontroller=a600000.dwc3
 
 BOARD_INCLUDE_DTB_IN_BOOTIMG := true
