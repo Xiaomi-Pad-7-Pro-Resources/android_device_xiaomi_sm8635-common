@@ -230,9 +230,9 @@ PRODUCT_PACKAGES += \
     vendor_dsp_mountpoint \
     vendor_firmware_mnt_mountpoint
 
-# Peripheral Manager
+# Parts
 PRODUCT_PACKAGES += \
-    XiaomiPeripheralManager
+    XiaomiParts
 
 # Power
 PRODUCT_PACKAGES += \
