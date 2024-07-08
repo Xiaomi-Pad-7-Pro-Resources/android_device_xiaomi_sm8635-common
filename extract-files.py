@@ -165,7 +165,7 @@ blob_fixups: blob_fixups_user_type = {
        'vendor/etc/media_codecs_cliffs_v1.xml',
        'vendor/etc/media_codecs_muyu.xml',
     ): blob_fixup()
-        .regex_replace('.+media_codecs_(google_audio|google_telephony|vendor_audio).+\n', ''),
+        .regex_replace('.+media_codecs_(google_audio|google_c2|google_telephony|vendor_audio).+\n', ''),
     'system_ext/lib64/libwfdservice.so': blob_fixup()
         .replace_needed('android.media.audio.common.types-V2-cpp.so', 'android.media.audio.common.types-V4-cpp.so'),
     'vendor/etc/vintf/manifest/c2_manifest_vendor.xml': blob_fixup()
