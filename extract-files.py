@@ -172,7 +172,7 @@ blob_fixups: blob_fixups_user_type = {
     ): blob_fixup()
         .add_needed('libcodec2_shim.so'),
     'system_ext/lib64/libwfdservice.so': blob_fixup()
-        .replace_needed('android.media.audio.common.types-V2-cpp.so', 'android.media.audio.common.types-V3-cpp.so'),
+        .replace_needed('android.media.audio.common.types-V2-cpp.so', 'android.media.audio.common.types-V4-cpp.so'),
     'vendor/lib64/c2.dolby.client.so' : blob_fixup()
         .add_needed('dolbycodec_shim.so'),
     'vendor/lib64/vendor.libdpmframework.so': blob_fixup()
