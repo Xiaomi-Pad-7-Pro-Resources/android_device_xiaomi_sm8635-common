@@ -78,6 +78,11 @@ blob_fixups: blob_fixups_user_type = {
     ): blob_fixup()
         .add_needed('libprocessgroup_shim.so'),
     (
+        'vendor/bin/hw/dolbycodec2',
+        'vendor/bin/hw/vendor.dolby_3_12.media.c2@1.0-service',
+    ): blob_fixup()
+        .replace_needed('libutils.so', 'libutils-v34.so'),
+    (
         'odm/lib64/libalLDC.so',
         'odm/lib64/libAncHumanVideoBokehV4.so',
         'odm/lib64/libanc_single_rt_bokeh.so',

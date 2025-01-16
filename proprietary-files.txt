@@ -811,6 +811,7 @@ vendor/lib64/vendor.display.postproc@1.0.so
 
 # Dolby
 odm/etc/dolby_vision.cfg
+system/lib64/libutils.so:vendor/lib64/libutils-v34.so;FIX_SONAME
 vendor/bin/hw/dolbycodec2
 vendor/bin/hw/vendor.dolby.dms.service
 vendor/bin/hw/vendor.dolby_3_12.media.c2@1.0-service
