@@ -6,6 +6,9 @@ on boot
     chmod 0666 /dev/goodix_fp
     chown system system /dev/goodix_fp
 
+    chown system system /sys/class/touch/touch_dev/fod_press_status
+    chmod 0664 /sys/class/touch/touch_dev/fod_press_status
+
     chown system system /sys/devices/platform/goodix_ts.0/double_tap_enable
     chown system system /sys/devices/platform/goodix_ts.0/fod_enable
     chown system system /sys/devices/virtual/mi_display/disp_feature/disp-DSI-0/disp_param

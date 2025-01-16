@@ -4,7 +4,7 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-#define LOG_TAG "UdfpsHandler.xiaomi_socrates"
+#define LOG_TAG "UdfpsHandler.xiaomi_sm8550"
 
 #include <android-base/logging.h>
 #include <android-base/unique_fd.h>
@@ -32,7 +32,13 @@
 
 #define FINGERPRINT_ACQUIRED_VENDOR 7
 
+#define FOD_PRESS_STATUS_PATH "/sys/class/touch/touch_dev/fod_press_status"
+
 namespace {
+
+bool fileExists(const std::string& path) {
+    return access(path.c_str(), F_OK) != -1;
+}
 
 template <typename T>
 static void set(const std::string& path, const T& value) {
@@ -42,7 +48,7 @@ static void set(const std::string& path, const T& value) {
 
 }  // anonymous namespace
 
-class XiaomiSocratesUdfpsHander : public UdfpsHandler {
+class XiaomiSM8550UdfpsHander : public UdfpsHandler {
   public:
     void init(fingerprint_device_t* device) {
         mDevice = device;
@@ -87,7 +93,13 @@ class XiaomiSocratesUdfpsHander : public UdfpsHandler {
     fingerprint_device_t* mDevice;
 
     void setFodStatus(int value) {
-        set(FOD_STATUS_PATH, value);
+        if (fileExists(FOD_STATUS_PATH)) {
+            set(FOD_STATUS_PATH, value);
+        } else if (fileExists(FOD_PRESS_STATUS_PATH)) {
+            set(FOD_PRESS_STATUS_PATH, value);
+        } else {
+            LOG(WARNING) << "Neither " << FOD_STATUS_PATH << " or " << FOD_PRESS_STATUS_PATH << " exists!";
+        }
     }
 
     void setFingerDown(bool pressed) {
@@ -104,7 +116,7 @@ class XiaomiSocratesUdfpsHander : public UdfpsHandler {
 };
 
 static UdfpsHandler* create() {
-    return new XiaomiSocratesUdfpsHander();
+    return new XiaomiSM8550UdfpsHander();
 }
 
 static void destroy(UdfpsHandler* handler) {
