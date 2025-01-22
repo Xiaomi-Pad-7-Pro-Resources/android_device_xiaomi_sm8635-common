@@ -1,5 +1,8 @@
 # Camera
 genfscon sysfs "/csiphy_umd_paras/csiphy_umd_paras" u:object_r:sysfs_csiphy_umd_paras:s0
 
+# Fingerprint
+genfscon sysfs "/devices/platform/soc/soc:fingerprint_goodix/wakeup" u:object_r:sysfs_wakeup:s0
+
 # Perf
 genfscon proc "/perflock_records" u:object_r:vendor_proc_perflock_records:s0
