@@ -50,6 +50,11 @@ lib_fixups: lib_fixups_user_type = {
         'libagmmixer',
         'libpalclient',
         'libwpa_client',
+        'libar-acdb',
+        'libats',
+        'liblx-osal',
+        'libagm',
+        'libar-pal',
     ): lib_fixup_remove,
 }
 
