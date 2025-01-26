@@ -70,7 +70,6 @@ plh_scmi.ko
 qdss_bridge.ko
 usb_f_qdss.ko
 dwc3-msm.ko
-wcd_usbss_i2c.ko
 ucsi_glink.ko
 redriver.ko
 fsa4480-i2c.ko

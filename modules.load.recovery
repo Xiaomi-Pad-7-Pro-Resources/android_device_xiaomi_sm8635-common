@@ -128,7 +128,6 @@ qbt_handler.ko
 hung_task_enh.ko
 qfprom-sys.ko
 debug_symbol.ko
-wcd_usbss_i2c.ko
 qti-fixed-regulator.ko
 proxy-consumer.ko
 qpnp-amoled-regulator.ko
