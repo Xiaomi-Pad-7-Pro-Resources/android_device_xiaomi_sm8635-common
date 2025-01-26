@@ -317,3 +317,4 @@ sync_fence.ko
 hdcp_qseecom_dlkm.ko
 msm-mmrm.ko
 msm_ext_display.ko
+smcinvoke_dlkm.ko 
