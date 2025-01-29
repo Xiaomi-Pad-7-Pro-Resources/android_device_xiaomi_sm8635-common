@@ -83,9 +83,9 @@ persist.vendor.battery.health=true
 # Media
 debug.media.video.frc=false
 debug.media.video.vpp=false
-ro.vendor.media.video.frc.support=false
+ro.vendor.media.video.frc.support=true
 ro.vendor.media.video.vpp.support=true
-debug.config.media.video.frc.support=false
+debug.config.media.video.frc.support=true
 debug.config.media.video.aie.support=true
 debug.config.media.video.ais.support=true
 debug.media.video.chipset=6
