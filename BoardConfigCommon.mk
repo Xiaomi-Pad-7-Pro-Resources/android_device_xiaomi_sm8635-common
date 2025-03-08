@@ -7,7 +7,6 @@
 COMMON_PATH := device/xiaomi/sm8635-common
 
 # A/B
-AB_OTA_UPDATER := true
 AB_OTA_PARTITIONS := \
     boot \
     dtbo \
