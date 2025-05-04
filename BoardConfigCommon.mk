@@ -4,7 +4,7 @@
 # SPDX-License-Identifier: Apache-2.0
 #
 
-DEVICE_PATH := device/xiaomi/socrates
+COMMON_PATH := device/xiaomi/sm8550-common
 
 # A/B
 AB_OTA_UPDATER := true
@@ -62,7 +62,7 @@ TARGET_NO_BOOTLOADER := true
 TARGET_SCREEN_DENSITY := 540
 
 # Filesystem
-TARGET_FS_CONFIG_GEN := $(DEVICE_PATH)/configs/config.fs
+TARGET_FS_CONFIG_GEN := $(COMMON_PATH)/configs/config.fs
 
 # Hardware
 BOARD_USES_QCOM_HARDWARE := true
@@ -87,7 +87,7 @@ TARGET_KERNEL_SOURCE := kernel/xiaomi/sm8550
 TARGET_KERNEL_CONFIG := \
     gki_defconfig \
     vendor/kalama_GKI.config \
-    vendor/socrates_GKI.config
+    vendor/$(PRODUCT_DEVICE)_GKI.config
 KERNEL_LTO := none
 
 BOARD_USES_QCOM_MERGE_DTBS_SCRIPT := true
@@ -121,7 +121,7 @@ TARGET_KERNEL_EXT_MODULES := \
 	qcom/opensource/bt-kernel \
 	nxp/opensource/driver
 
-BOOT_KERNEL_MODULES := $(strip $(shell cat $(DEVICE_PATH)/modules.load.recovery))
+BOOT_KERNEL_MODULES := $(strip $(shell cat $(COMMON_PATH)/modules.load.recovery))
 BOOT_KERNEL_MODULES += \
     q6_pdr_dlkm.ko \
     q6_notifier_dlkm.ko \
@@ -130,9 +130,9 @@ BOOT_KERNEL_MODULES += \
     spf_core_dlkm.ko \
     adsp_loader_dlkm.ko \
     qti_battery_charger.ko
-BOARD_VENDOR_KERNEL_MODULES_LOAD := $(strip $(shell cat $(DEVICE_PATH)/modules.load.vendor_dlkm))
-BOARD_VENDOR_RAMDISK_KERNEL_MODULES_LOAD := $(strip $(shell cat $(DEVICE_PATH)/modules.load.first_stage))
-BOARD_VENDOR_RAMDISK_RECOVERY_KERNEL_MODULES_LOAD  := $(strip $(shell cat $(DEVICE_PATH)/modules.load.recovery))
+BOARD_VENDOR_KERNEL_MODULES_LOAD := $(strip $(shell cat $(COMMON_PATH)/modules.load.vendor_dlkm))
+BOARD_VENDOR_RAMDISK_KERNEL_MODULES_LOAD := $(strip $(shell cat $(COMMON_PATH)/modules.load.first_stage))
+BOARD_VENDOR_RAMDISK_RECOVERY_KERNEL_MODULES_LOAD  := $(strip $(shell cat $(COMMON_PATH)/modules.load.recovery))
 
 # Partitions
 BOARD_BOOTIMAGE_PARTITION_SIZE := 201326592
@@ -164,12 +164,9 @@ BOARD_ROOT_EXTRA_SYMLINKS += /lib/modules:/vendor/lib/modules
 TARGET_BOARD_PLATFORM := kalama
 TARGET_BOOTLOADER_BOARD_NAME := kalama
 
-# Power
-TARGET_TAP_TO_WAKE_NODE := /sys/devices/platform/goodix_ts.0/double_tap_enable
-
 # Recovery
 BOARD_EXCLUDE_KERNEL_FROM_RECOVERY_IMAGE := true
-TARGET_RECOVERY_FSTAB := $(DEVICE_PATH)/fstab.qcom
+TARGET_RECOVERY_FSTAB := $(COMMON_PATH)/fstab.qcom
 TARGET_RECOVERY_PIXEL_FORMAT := RGBX_8888
 TARGET_USERIMAGES_USE_EXT4 := true
 TARGET_USERIMAGES_USE_F2FS := true
@@ -178,28 +175,28 @@ TARGET_USERIMAGES_USE_F2FS := true
 ENABLE_VENDOR_RIL_SERVICE := true
 
 # SEPolicy
-BOARD_VENDOR_SEPOLICY_DIRS += $(DEVICE_PATH)/sepolicy/vendor
+BOARD_VENDOR_SEPOLICY_DIRS += $(COMMON_PATH)/sepolicy/vendor
 include device/qcom/sepolicy_vndr/SEPolicy.mk
 
 # System properties
-TARGET_ODM_PROP += $(DEVICE_PATH)/odm.prop
-TARGET_PRODUCT_PROP += $(DEVICE_PATH)/product.prop
-TARGET_SYSTEM_PROP += $(DEVICE_PATH)/system.prop
-TARGET_VENDOR_PROP += $(DEVICE_PATH)/vendor.prop
+TARGET_ODM_PROP += $(COMMON_PATH)/odm.prop
+TARGET_PRODUCT_PROP += $(COMMON_PATH)/product.prop
+TARGET_SYSTEM_PROP += $(COMMON_PATH)/system.prop
+TARGET_VENDOR_PROP += $(COMMON_PATH)/vendor.prop
 
 # Vibrator
 TARGET_QTI_VIBRATOR_EFFECT_LIB := libqtivibratoreffect.xiaomi
 TARGET_QTI_VIBRATOR_USE_EFFECT_STREAM := true
 
 # VINTF
-DEVICE_MATRIX_FILE := $(DEVICE_PATH)/configs/vintf/compatibility_matrix.xml
+DEVICE_MATRIX_FILE := $(COMMON_PATH)/configs/vintf/compatibility_matrix.xml
 DEVICE_FRAMEWORK_COMPATIBILITY_MATRIX_FILE := \
-    $(DEVICE_PATH)/configs/vintf/framework_matrix.xml \
-    $(DEVICE_PATH)/configs/vintf/product_framework_matrix.xml \
+    $(COMMON_PATH)/configs/vintf/framework_matrix.xml \
+    $(COMMON_PATH)/configs/vintf/product_framework_matrix.xml \
     vendor/lineage/config/device_framework_matrix.xml
 DEVICE_MANIFEST_FILE := \
-    $(DEVICE_PATH)/configs/vintf/manifest_kalama.xml \
-    $(DEVICE_PATH)/configs/vintf/manifest_socrates.xml
+    $(COMMON_PATH)/configs/vintf/manifest_kalama.xml \
+    $(COMMON_PATH)/configs/vintf/manifest_socrates.xml
 
 # Vendor security patch
 VENDOR_SECURITY_PATCH := 2025-01-01
@@ -229,4 +226,4 @@ WIFI_HIDL_FEATURE_DUAL_INTERFACE := true
 WIFI_HIDL_UNIFIED_SUPPLICANT_SERVICE_RC_ENTRY := true
 WPA_SUPPLICANT_VERSION := VER_0_8_X
 
-include vendor/xiaomi/socrates/BoardConfigVendor.mk
+include vendor/xiaomi/sm8550-common/BoardConfigVendor.mk

@@ -174,7 +174,7 @@ PRODUCT_PACKAGES += \
 
 # Init
 PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/init/init.socrates.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/init.socrates.rc \
+    $(LOCAL_PATH)/init/init.sm8550.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/init.sm8550.rc \
     $(LOCAL_PATH)/init/init.recovery.qcom.rc:recovery/root/init.recovery.qcom.rc
 
 # IPA
@@ -189,10 +189,6 @@ PRODUCT_PACKAGES += \
 
 PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.hardware.consumerir.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.consumerir.xml
-
-# Keylayout
-PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/configs/keylayout/goodix_ts.kl:$(TARGET_COPY_OUT_VENDOR)/usr/keylayout/goodix_ts.kl
 
 # Media
 PRODUCT_COPY_FILES += \
@@ -238,11 +234,11 @@ PRODUCT_COPY_FILES += \
 
 # Overlay
 PRODUCT_PACKAGES += \
-    CarrierConfigOverlaySocrates \
-    FrameworkResOverlaySocrates \
-    SystemUIOverlaySocrates \
-    SettingsOverlaySocrates \
-    TelephonyOverlaySocrates
+    CarrierConfigOverlayCommon \
+    FrameworkResOverlayCommon \
+    SystemUIOverlayCommon \
+    SettingsOverlayCommon \
+    TelephonyOverlayCommon
 
 # Partitions
 PRODUCT_PACKAGES += \
@@ -358,7 +354,7 @@ PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.hardware.usb.host.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.usb.host.xml
 
 # Vendor configurations
-$(call inherit-product, vendor/xiaomi/socrates/socrates-vendor.mk)
+$(call inherit-product, vendor/xiaomi/sm8550-common/sm8550-common-vendor.mk)
 
 # Vendor service manager
 PRODUCT_PACKAGES += \

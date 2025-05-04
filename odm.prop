@@ -57,25 +57,18 @@ vendor.display.enable_fb_scaling=1
 ro.vendor.display.touch.idle.enable=true
 ro.vendor.display.fod_monitor_default_fps=120
 ro.vendor.fps.switch.thermal=true
-vendor.display.disable_3d_adaptive_tm=1
 ro.vendor.display.dolbyvision.support=true
 vendor.display.disable_stc_dimming=1
-ro.vendor.display.switch_resolution.support=1
-ro.vendor.display.mode_change_optimize.enable=true
-ro.vendor.mi_sf.ultimate.perf.support=true
 ro.vendor.mi_sf.gallery_p3_dolby_opt=true
 ro.vendor.display.video_or_camera_fps.support=true
 ro.vendor.display.set_fps_stat_timer_ms=1000
 debug.sf.set_idle_timer_ms=1100
-persist.sys.miui_resolution=1440x3200
 vendor.display.force_tonemapping=1
 
 # Fingerprint
 persist.vendor.sys.fp.dump_data=0
 ro.hardware.fp.fod=true
 persist.vendor.sys.fp.expolevel=0x88
-persist.vendor.sys.fp.fod.location.X_Y=596,2758
-persist.vendor.sys.fp.fod.size.width_height=248,248
 ro.hardware.fp.fod.location=low
 ro.hardware.fp.fod.touch.ctl.version=2.0
 ro.hardware.fp.fod.lowlight.lux.threshold=3

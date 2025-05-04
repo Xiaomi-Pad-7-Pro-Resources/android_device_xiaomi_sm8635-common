@@ -24,18 +24,13 @@ from extract_utils.main import (
 )
 
 namespace_imports = [
-    'device/xiaomi/socrates',
+    'device/xiaomi/sm8550-common',
     'hardware/qcom-caf/wlan',
     'hardware/qcom-caf/sm8550',
     'hardware/xiaomi',
     'vendor/qcom/opensource/commonsys-intf/display',
     'vendor/qcom/opensource/dataservices',
 ]
-
-
-def lib_fixup_camera_suffix(lib: str, partition: str, *args, **kwargs):
-    return f'{lib}-camera'
-
 
 def lib_fixup_vendor_suffix(lib: str, partition: str, *args, **kwargs):
     return f'{lib}-{partition}' if partition == 'vendor' else None
@@ -50,9 +45,6 @@ lib_fixups: lib_fixups_user_type = {
         'vendor.qti.diaghal@1.0',
     ): lib_fixup_vendor_suffix,
     (
-        'vendor/lib64/camera/libPlatformValidatorShared.so',
-    ): lib_fixup_camera_suffix,
-    (
         'audio.primary.kalama',
         'libagmclient',
         'libagmmixer',
@@ -66,10 +58,6 @@ dev_null_sha256 = b'e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852
 
 
 blob_fixups: blob_fixups_user_type = {
-    ('odm/etc/camera/enhance_motiontuning.xml',
-     'odm/etc/camera/motiontuning.xml',
-     'odm/etc/camera/night_motiontuning.xml') : blob_fixup()
-        .regex_replace('xml=version', 'xml version'),
     'odm/lib64/libmt@1.3.so' : blob_fixup()
         .replace_needed('libcrypto.so', 'libcrypto-v33.so'),
     ('vendor/bin/hw/android.hardware.security.keymint-service-qti',
@@ -91,13 +79,12 @@ blob_fixups: blob_fixups_user_type = {
 }  # fmt: skip
 
 module = ExtractUtilsModule(
-    'socrates',
+    'sm8550-common',
     'xiaomi',
     blob_fixups=blob_fixups,
     lib_fixups=lib_fixups,
     namespace_imports=namespace_imports,
     check_elf=True,
-    add_firmware_proprietary_file=True,
 )
 
 if __name__ == '__main__':

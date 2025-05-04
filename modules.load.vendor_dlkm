@@ -86,7 +86,6 @@ hung_task_enh.ko
 qfprom-sys.ko
 qti-fixed-regulator.ko
 qpnp-amoled-regulator.ko
-wl2866d.ko
 qti-ocp-notifier.ko
 msm_geni_serial.ko
 frpc-adsprpc.ko
@@ -121,14 +120,11 @@ usbmon.ko
 repeater-qti-pmic-eusb2.ko
 repeater-i2c-eusb2.ko
 nb7vpq904m.ko
-xiaomi_touch.ko
-goodix_core.ko
 pm8941-pwrkey.ko
 mtdoops.ko
 mtd.ko
 qcom-hv-haptics.ko
 qti_battery_charger.ko
-goodix_fod.ko
 i2c-msm-geni.ko
 i3c-master-msm-geni.ko
 ir-spi.ko
