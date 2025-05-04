@@ -1,5 +1,5 @@
 ## All proprietary files from this list, unless pinned and noted otherwise,
-## are from Redmi K60 Pro (OS2.0.102.0.VMKCNXM).
+## are from Redmi K60 Pro (OS2.0.106.0.VMKCNXM).
 
 # ACDBs
 vendor/etc/acdbdata/IDP_UPD/IDP_UPD_acdb_cal.acdb
