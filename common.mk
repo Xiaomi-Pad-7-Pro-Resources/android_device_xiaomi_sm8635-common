@@ -237,7 +237,8 @@ PRODUCT_PACKAGES += \
     FrameworkResOverlayCommon \
     SystemUIOverlayCommon \
     SettingsOverlayCommon \
-    TelephonyOverlayCommon
+    TelephonyOverlayCommon \
+    WifiOverlayCommon
 
 # Partitions
 PRODUCT_PACKAGES += \
