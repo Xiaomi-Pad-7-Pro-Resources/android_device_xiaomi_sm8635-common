@@ -37,6 +37,9 @@
 # NFC
 /odm/bin/hw/vendor\.nxp\.hardware\.nfc@2\.0-service u:object_r:hal_nfc_default_exec:s0
 
+# Sensors HAL
+/vendor/bin/hw/android\.hardware\.sensors-service\.xiaomi-multihal      u:object_r:hal_sensors_default_exec:s0
+
 # Touchscreen
 /sys/devices/platform/goodix_ts.0(/.*)? u:object_r:sysfs_goodix_touch:s0
 
