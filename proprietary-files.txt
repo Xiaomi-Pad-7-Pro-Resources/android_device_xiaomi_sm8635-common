@@ -1,5 +1,5 @@
 ## All proprietary files from this list, unless pinned and noted otherwise,
-## are from Redmi K60 Pro (OS2.0.106.0.VMKCNXM).
+## are from Redmi K60 Pro (OS2.0.201.0.VMKCNXM).
 
 # libmcs depends on libar-acdb, libats and liblx-osal, which are gnu makefile targets
 # libqtigefar depends on libar-pal, which is a gnu makefile target
@@ -1097,6 +1097,13 @@ vendor/lib64/vendor.qti.hardware.qccvndhal@1.0.so
 # QCV
 vendor/bin/init.qti.qcv.sh
 vendor/etc/init/init.qti.qcv.rc
+
+# QEGAHAL
+vendor/bin/vendor.qti.qegahal-service
+vendor/etc/init/vendor.qti.qegahal-service.rc
+vendor/etc/vintf/manifest/vendor.qti.qegahal-service.xml
+vendor/lib64/vendor.qti.qegahal-impl.so
+vendor/lib64/vendor.qti.qegahal-V1-ndk_platform.so
 
 # QESDK
 vendor/bin/qesdk-manager
