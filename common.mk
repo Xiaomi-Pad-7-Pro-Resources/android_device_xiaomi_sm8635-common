@@ -240,6 +240,9 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     libril
 
+# Recovery
+$(call soong_config_set_bool,recovery,target_recovery_uses_qti_drm,true)
+
 # RenderScript
 PRODUCT_PACKAGES += \
     android.hardware.renderscript@1.0-impl
