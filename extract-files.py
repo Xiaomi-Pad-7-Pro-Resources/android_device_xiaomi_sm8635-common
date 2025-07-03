@@ -175,6 +175,8 @@ blob_fixups: blob_fixups_user_type = {
         .replace_needed('android.media.audio.common.types-V2-cpp.so', 'android.media.audio.common.types-V4-cpp.so'),
     'vendor/lib64/c2.dolby.client.so' : blob_fixup()
         .add_needed('dolbycodec_shim.so'),
+    'vendor/lib64/libmicamera_hal_core.so': blob_fixup()
+        .add_needed('libui_shim.so'),
     'vendor/lib64/vendor.libdpmframework.so': blob_fixup()
         .add_needed('libhidlbase_shim.so'),
     'vendor/etc/ueventd.rc' : blob_fixup()
