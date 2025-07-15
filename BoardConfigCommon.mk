@@ -193,7 +193,7 @@ DEVICE_MANIFEST_FILE := \
     $(COMMON_PATH)/configs/vintf/manifest_socrates.xml
 
 # Vendor security patch
-VENDOR_SECURITY_PATCH := 2025-05-01
+VENDOR_SECURITY_PATCH := 2025-06-01
 
 # Verified Boot
 BOARD_AVB_ENABLE := true

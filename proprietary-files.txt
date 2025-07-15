@@ -1,5 +1,5 @@
 ## All proprietary files from this list, unless pinned and noted otherwise,
-## are from Redmi K60 Pro (OS2.0.201.0.VMKCNXM).
+## are from Redmi K60 Pro (OS2.0.206.0.VMKCNXM).
 
 # libmcs depends on libar-acdb, libats and liblx-osal, which are gnu makefile targets
 # libqtigefar depends on libar-pal, which is a gnu makefile target
