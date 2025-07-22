@@ -268,6 +268,9 @@ PRODUCT_PACKAGES += \
 
 # Radio
 PRODUCT_PACKAGES += \
+    rfs_msm_mpss_readonly_mbnconfig_symlink
+
+PRODUCT_PACKAGES += \
     libril
 
 # RenderScript
