@@ -72,6 +72,12 @@ lib_fixups: lib_fixups_user_type = {
 
 blob_fixups: blob_fixups_user_type = {
     (
+        'odm/lib64/libcamxcommonutils.so',
+        'odm/lib64/libmialgoengine.so',
+        'vendor/lib64/libcameraopt.so',
+    ): blob_fixup()
+        .add_needed('libprocessgroup_shim.so'),
+    (
         'odm/lib64/libalLDC.so',
         'odm/lib64/libAncHumanVideoBokehV4.so',
         'odm/lib64/libanc_single_rt_bokeh.so',
