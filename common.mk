@@ -52,6 +52,7 @@ PRODUCT_PACKAGES += \
     libfmpal \
     libhfp_pal \
     libsndcardparser \
+    libpalclient \
     libqcompostprocbundle \
     libqcomvisualizer \
     libqcomvoiceprocessing \
