@@ -4,7 +4,7 @@
 # SPDX-License-Identifier: Apache-2.0
 #
 
-COMMON_PATH := device/xiaomi/sm8550-common
+COMMON_PATH := device/xiaomi/sm8635-common
 
 # A/B
 AB_OTA_UPDATER := true
@@ -25,17 +25,14 @@ AB_OTA_PARTITIONS := \
     vendor_dlkm
 
 # API level
-BOARD_SHIPPING_API_LEVEL := 33
-
-SOONG_CONFIG_NAMESPACES += ufsbsg
-SOONG_CONFIG_ufsbsg += ufsframework
-SOONG_CONFIG_ufsbsg_ufsframework := bsg
+BOARD_SHIPPING_API_LEVEL := 34
 
 # Architecture
 TARGET_ARCH := arm64
-TARGET_ARCH_VARIANT := armv8-a-branchprot
+TARGET_ARCH_VARIANT := armv8-2a-dotprod
 TARGET_CPU_ABI := arm64-v8a
-TARGET_CPU_VARIANT := kryo
+TARGET_CPU_VARIANT := generic
+TARGET_CPU_VARIANT_RUNTIME := kryo300
 
 # Audio
 AUDIO_FEATURE_ENABLED_PROXY_DEVICE := true
@@ -80,10 +77,10 @@ BOARD_MKBOOTIMG_ARGS := --header_version $(BOARD_BOOT_HEADER_VERSION)
 BOARD_MKBOOTIMG_INIT_ARGS := --header_version $(BOARD_BOOT_HEADER_VERSION)
 
 BOARD_KERNEL_IMAGE_NAME := Image
-TARGET_KERNEL_SOURCE := kernel/xiaomi/sm8550
+TARGET_KERNEL_SOURCE := kernel/xiaomi/sm8650
 TARGET_KERNEL_CONFIG := \
     gki_defconfig \
-    vendor/kalama_GKI.config \
+    vendor/pineapple_GKI.config \
     vendor/$(PRODUCT_DEVICE)_GKI.config
 KERNEL_LTO := none
 
@@ -91,7 +88,7 @@ BOARD_USES_QCOM_MERGE_DTBS_SCRIPT := true
 TARGET_NEEDS_DTBOIMAGE := true
 
 # Kernel (modules)
-TARGET_KERNEL_EXT_MODULE_ROOT := kernel/xiaomi/sm8550-modules
+TARGET_KERNEL_EXT_MODULE_ROOT := kernel/xiaomi/sm8650-modules
 TARGET_KERNEL_EXT_MODULES := \
 	qcom/opensource/mmrm-driver \
 	qcom/opensource/mm-drivers/hw_fence \
@@ -133,19 +130,19 @@ BOARD_VENDOR_RAMDISK_KERNEL_MODULES_LOAD := $(strip $(shell cat $(COMMON_PATH)/m
 BOARD_VENDOR_RAMDISK_RECOVERY_KERNEL_MODULES_LOAD  := $(strip $(shell cat $(COMMON_PATH)/modules.load.recovery))
 
 # Partitions
-BOARD_BOOTIMAGE_PARTITION_SIZE := 201326592
+BOARD_BOOTIMAGE_PARTITION_SIZE := 100663296
 BOARD_DTBOIMG_PARTITION_SIZE := 25165824
 BOARD_INIT_BOOT_IMAGE_PARTITION_SIZE := 8388608
 BOARD_VENDOR_BOOTIMAGE_PARTITION_SIZE := 100663296
 BOARD_RECOVERYIMAGE_PARTITION_SIZE := 104857600
-BOARD_SUPER_PARTITION_SIZE := 9663676416
+BOARD_SUPER_PARTITION_SIZE := 8321499136
 
 BOARD_FLASH_BLOCK_SIZE := 262144 # (BOARD_KERNEL_PAGESIZE * 64)
 
 BOARD_USES_METADATA_PARTITION := true
 
 BOARD_XIAOMI_DYNAMIC_PARTITIONS_PARTITION_LIST := odm product system system_dlkm system_ext vendor vendor_dlkm
-BOARD_XIAOMI_DYNAMIC_PARTITIONS_SIZE := 9659482112 # (BOARD_SUPER_PARTITION_SIZE - 4 MiB)
+BOARD_XIAOMI_DYNAMIC_PARTITIONS_SIZE := 8317304832 # (BOARD_SUPER_PARTITION_SIZE - 4 MiB)
 BOARD_SUPER_PARTITION_GROUPS := xiaomi_dynamic_partitions
 
 $(foreach p, $(call to-upper, $(BOARD_XIAOMI_DYNAMIC_PARTITIONS_PARTITION_LIST)), \
@@ -159,8 +156,8 @@ BOARD_ROOT_EXTRA_FOLDERS += vendor/firmware vendor/firmware_mnt
 BOARD_ROOT_EXTRA_SYMLINKS += /lib/modules:/vendor/lib/modules
 
 # Platform
-TARGET_BOARD_PLATFORM := kalama
-TARGET_BOOTLOADER_BOARD_NAME := kalama
+TARGET_BOARD_PLATFORM := pineapple
+TARGET_BOOTLOADER_BOARD_NAME := pineapple
 
 # Recovery
 BOARD_EXCLUDE_KERNEL_FROM_RECOVERY_IMAGE := true
@@ -220,4 +217,4 @@ WIFI_HIDL_FEATURE_DUAL_INTERFACE := true
 WIFI_HIDL_UNIFIED_SUPPLICANT_SERVICE_RC_ENTRY := true
 WPA_SUPPLICANT_VERSION := VER_0_8_X
 
-include vendor/xiaomi/sm8550-common/BoardConfigVendor.mk
+include vendor/xiaomi/sm8635-common/BoardConfigVendor.mk

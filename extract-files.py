@@ -24,9 +24,9 @@ from extract_utils.main import (
 )
 
 namespace_imports = [
-    'device/xiaomi/sm8550-common',
+    'device/xiaomi/sm8635-common',
     'hardware/qcom-caf/wlan',
-    'hardware/qcom-caf/sm8550',
+    'hardware/qcom-caf/sm8650',
     'hardware/xiaomi',
     'vendor/qcom/opensource/commonsys-intf/display',
     'vendor/qcom/opensource/dataservices',
@@ -45,7 +45,7 @@ lib_fixups: lib_fixups_user_type = {
         'vendor.qti.diaghal@1.0',
     ): lib_fixup_vendor_suffix,
     (
-        'audio.primary.kalama',
+        'audio.primary.pineapple',
         'libagmclient',
         'libagmmixer',
         'libpalclient',
@@ -91,7 +91,7 @@ blob_fixups: blob_fixups_user_type = {
 }  # fmt: skip
 
 module = ExtractUtilsModule(
-    'sm8550-common',
+    'sm8635-common',
     'xiaomi',
     blob_fixups=blob_fixups,
     lib_fixups=lib_fixups,
