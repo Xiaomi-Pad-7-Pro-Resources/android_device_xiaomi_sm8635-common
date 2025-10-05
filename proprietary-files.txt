@@ -1324,15 +1324,6 @@ vendor/lib64/libminkdescriptor.so
 vendor/lib64/libminksocket_vendor.so
 vendor/lib64/libqcbor.so
 
-# Secure element
-vendor/bin/hw/vendor.qti.secure_element@1.2-service
-vendor/etc/init/vendor.qti.secure_element@1.2-service.rc
-vendor/lib64/android.hardware.secure_element@1.0-impl.so
-vendor/lib64/libesepmconfig.so
-vendor/lib64/libesesbprovision.so
-vendor/lib64/vendor.qti.esepowermanager@1.0.so
-vendor/lib64/vendor.qti.esepowermanager@1.1.so
-
 # Sensors
 odm/lib64/sensors.touch.detect.so
 vendor/bin/hw/vendor.qti.hardware.sensorscalibrate@1.0-service
