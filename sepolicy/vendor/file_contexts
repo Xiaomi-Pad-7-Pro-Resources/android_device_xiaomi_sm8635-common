@@ -28,9 +28,6 @@
 /vendor/bin/hw/dolbycodec2 u:object_r:vendorcodec_exec:s0
 /vendor/bin/hw/vendor\.dolby\.media\.c2@1\.0-service u:object_r:mediacodec_exec:s0
 
-# NFC
-/odm/bin/hw/vendor\.nxp\.hardware\.nfc@2\.0-service u:object_r:hal_nfc_default_exec:s0
-
 # Sensors HAL
 /vendor/bin/hw/android\.hardware\.sensors-service\.xiaomi-multihal      u:object_r:hal_sensors_default_exec:s0
 

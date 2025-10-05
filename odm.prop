@@ -90,19 +90,6 @@ vendor.media.vpp.aie.ltmacebril=20
 vendor.media.vpp.aie.ltmacebrih=0
 debug.config.media.video.dolby_vision_suports=true
 
-# NFC
-ro.vendor.se.type=eSE,HCE,UICC
-ro.vendor.se.chip.model=SN110T
-ro.vendor.nfc.repair=1
-ro.vendor.nfc.dispatch_optim=1
-ro.vendor.nfc.wallet_fusion=1
-ro.vendor.nfc.disable.i2c=false
-ro.vendor.se.info=17-673904
-ro.vendor.nfc.secure_display_optim=1
-ro.vendor.nfc.aclog=1
-ro.vendor.nfc.debounce_field_on=1
-ro.vendor.nfc.field_on_debounce=200
-
 # Properties
 ro.product.property_source_order=odm,vendor,product,system_ext,system
 

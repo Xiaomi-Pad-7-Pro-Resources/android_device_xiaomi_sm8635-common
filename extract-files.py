@@ -83,7 +83,6 @@ blob_fixups: blob_fixups_user_type = {
         .add_needed('libhidlbase_shim.so'),
     (
         'vendor/lib64/libstfactory-vendor.so',
-        'odm/lib64/nfc_nci.nqx.default.hw.so'
     ): blob_fixup()
         .add_needed('libbase_shim.so'),
     'vendor/etc/ueventd.rc' : blob_fixup()
