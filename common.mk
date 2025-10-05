@@ -204,11 +204,9 @@ PRODUCT_PACKAGES += \
 
 # Overlay
 PRODUCT_PACKAGES += \
-    CarrierConfigOverlayCommon \
     FrameworkResOverlayCommon \
     SystemUIOverlayCommon \
     SettingsOverlayCommon \
-    TelephonyOverlayCommon \
     WifiOverlayCommon
 
 # Partitions
@@ -268,31 +266,6 @@ PRODUCT_SOONG_NAMESPACES += \
     $(LOCAL_PATH) \
     hardware/xiaomi \
     vendor/qcom/opensource/usb/etc
-
-# Telephony
-PRODUCT_PACKAGES += \
-    extphonelib \
-    extphonelib.xml \
-    ims-ext-common \
-    ims_ext_common.xml \
-    qti-telephony-hidl-wrapper \
-    qti-telephony-hidl-wrapper-prd \
-    qti-telephony-utils \
-    qti_telephony_hidl_wrapper.xml \
-    qti_telephony_hidl_wrapper_prd.xml \
-    qti_telephony_utils.xml
-
-PRODUCT_PACKAGES += \
-    xiaomi-telephony-stub
-
-PRODUCT_BOOT_JARS += \
-    xiaomi-telephony-stub
-
-PRODUCT_COPY_FILES += \
-    frameworks/native/data/etc/android.hardware.telephony.cdma.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.telephony.cdma.xml \
-    frameworks/native/data/etc/android.hardware.telephony.gsm.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.telephony.gsm.xml \
-    frameworks/native/data/etc/android.hardware.telephony.ims.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.telephony.ims.xml \
-    frameworks/native/data/etc/android.hardware.telephony.mbms.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.telephony.mbms.xml
 
 # Thermal
 PRODUCT_PACKAGES += \
