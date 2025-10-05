@@ -530,10 +530,6 @@ vendor/firmware/evass.mdt
 vendor/lib64/libfastcvdsp_stub.so
 vendor/lib64/libfastcvopt.so
 
-# Fingerprint
-vendor/etc/permissions/qti_fingerprint_interface.xml
-vendor/etc/vintf/manifest/fod.xml
-
 # GNSS
 odm/bin/hw/android.hardware.gnss-aidl-service-qti
 odm/etc/init/android.hardware.gnss-aidl-service-qti.rc

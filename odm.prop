@@ -65,15 +65,6 @@ ro.vendor.display.set_fps_stat_timer_ms=1000
 debug.sf.set_idle_timer_ms=1100
 vendor.display.force_tonemapping=1
 
-# Fingerprint
-persist.vendor.sys.fp.dump_data=0
-ro.hardware.fp.fod=true
-persist.vendor.sys.fp.expolevel=0x88
-ro.hardware.fp.fod.location=low
-ro.hardware.fp.fod.touch.ctl.version=2.0
-ro.hardware.fp.fod.lowlight.lux.threshold=3
-ro.hardware.fp.fod.lowlight.brightness.threshold=411
-
 # Framework detect
 ro.vendor.qti.va_odm.support=1
 
