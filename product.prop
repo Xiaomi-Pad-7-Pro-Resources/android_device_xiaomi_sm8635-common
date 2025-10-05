@@ -1,22 +1,24 @@
-# Set supported Bluetooth profiles to enabled
-bluetooth.profile.asha.central.enabled=true
-bluetooth.profile.a2dp.source.enabled=true
-bluetooth.profile.avrcp.target.enabled=true
-bluetooth.profile.bap.broadcast.assist.enabled=true
-bluetooth.profile.bap.unicast.server.enabled=true
-bluetooth.profile.bas.client.enabled=true
-bluetooth.profile.csip.set_coordinator.enabled=true
-bluetooth.profile.gatt.enabled=true
-bluetooth.profile.hap.client.enabled=true
-bluetooth.profile.hfp.ag.enabled=true
-bluetooth.profile.hid.device.enabled=true
-bluetooth.profile.hid.host.enabled=true
-bluetooth.profile.map.server.enabled=true
-bluetooth.profile.mcp.server.enabled=true
-bluetooth.profile.opp.enabled=true
-bluetooth.profile.pan.nap.enabled=true
-bluetooth.profile.pan.panu.enabled=true
-bluetooth.profile.pbap.server.enabled=true
-bluetooth.profile.sap.server.enabled=true
-bluetooth.profile.tbs.server.enabled=true
-bluetooth.profile.vc.server.enabled=true
+# Audio
+audio.offload.min.duration.secs=30
+
+# Camera
+persist.vendor.camera.gesture.emoji.support=1
+
+# Dalvik
+dalvik.vm.madvise.artfile.size=0
+dalvik.vm.madvise.odexfile.size=0
+dalvik.vm.madvise.vdexfile.size=0
+
+# Display
+persist.sys.disable_sdr_dimming=true
+
+# Media
+media.stagefright.audio.deep=false
+
+# RKPD
+remote_provisioning.enable_rkpd=true
+remote_provisioning.hostname=remoteprovisioning.googleapis.com
+
+# Surfaceflinger
+debug.sf.disable_backpressure=1
+persist.sys.sf_charge_anim_supported=true
