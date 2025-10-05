@@ -88,57 +88,6 @@ BOARD_MKBOOTIMG_INIT_ARGS := --header_version $(BOARD_BOOT_HEADER_VERSION)
 
 BOARD_KERNEL_IMAGE_NAME := Image
 BOARD_USES_GENERIC_KERNEL_IMAGE := true
-TARGET_KERNEL_SOURCE := kernel/xiaomi/sm8650
-TARGET_KERNEL_CONFIG := \
-    gki_defconfig \
-    vendor/pineapple_GKI.config \
-    vendor/$(PRODUCT_DEVICE)_GKI.config
-KERNEL_LTO := none
-
-BOARD_USES_QCOM_MERGE_DTBS_SCRIPT := true
-TARGET_NEEDS_DTBOIMAGE := true
-
-# Kernel (modules)
-TARGET_KERNEL_EXT_MODULE_ROOT := kernel/xiaomi/sm8650-modules
-TARGET_KERNEL_EXT_MODULES := \
-	qcom/opensource/mmrm-driver \
-	qcom/opensource/mm-drivers/hw_fence \
-	qcom/opensource/mm-drivers/msm_ext_display \
-	qcom/opensource/mm-drivers/sync_fence \
-	qcom/opensource/audio-kernel \
-	qcom/opensource/camera-kernel \
-	qcom/opensource/dataipa/drivers/platform/msm \
-	qcom/opensource/datarmnet/core \
-	qcom/opensource/datarmnet-ext/aps \
-	qcom/opensource/datarmnet-ext/offload \
-	qcom/opensource/datarmnet-ext/shs \
-	qcom/opensource/datarmnet-ext/perf \
-	qcom/opensource/datarmnet-ext/perf_tether \
-	qcom/opensource/datarmnet-ext/sch \
-	qcom/opensource/datarmnet-ext/wlan \
-	qcom/opensource/securemsm-kernel \
-	qcom/opensource/display-drivers/msm \
-	qcom/opensource/eva-kernel \
-	qcom/opensource/video-driver \
-	qcom/opensource/graphics-kernel \
-	qcom/opensource/wlan/platform \
-	qcom/opensource/wlan/qcacld-3.0/.kiwi_v2 \
-	qcom/opensource/bt-kernel \
-	nxp/opensource/driver
-
-BOOT_KERNEL_MODULES := $(strip $(shell cat $(COMMON_PATH)/modules.load.recovery))
-BOOT_KERNEL_MODULES += \
-    q6_pdr_dlkm.ko \
-    q6_notifier_dlkm.ko \
-    snd_event_dlkm.ko \
-    gpr_dlkm.ko \
-    spf_core_dlkm.ko \
-    adsp_loader_dlkm.ko \
-    qti_battery_charger.ko \
-    qrng_dlkm.ko
-BOARD_VENDOR_KERNEL_MODULES_LOAD := $(strip $(shell cat $(COMMON_PATH)/modules.load.vendor_dlkm))
-BOARD_VENDOR_RAMDISK_KERNEL_MODULES_LOAD := $(strip $(shell cat $(COMMON_PATH)/modules.load.first_stage))
-BOARD_VENDOR_RAMDISK_RECOVERY_KERNEL_MODULES_LOAD  := $(strip $(shell cat $(COMMON_PATH)/modules.load.recovery))
 
 # Partitions
 BOARD_BOOTIMAGE_PARTITION_SIZE := 100663296
