@@ -113,9 +113,6 @@ $(foreach p, $(call to-upper, $(BOARD_XIAOMI_DYNAMIC_PARTITIONS_PARTITION_LIST))
 BOARD_PRODUCTIMAGE_MINIMAL_PARTITION_RESERVED_SIZE := false
 include vendor/lineage/config/BoardConfigReservedSize.mk
 
-BOARD_ROOT_EXTRA_FOLDERS += vendor/firmware vendor/firmware_mnt
-BOARD_ROOT_EXTRA_SYMLINKS += /lib/modules:/vendor/lib/modules
-
 # Platform
 TARGET_BOARD_PLATFORM := pineapple
 TARGET_BOOTLOADER_BOARD_NAME := pineapple
