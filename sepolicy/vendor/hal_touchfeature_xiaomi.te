@@ -1,0 +1,11 @@
+type hal_touchfeature_xiaomi_default, domain;
+binder_use(hal_touchfeature_xiaomi)
+
+type hal_touchfeature_xiaomi_default_exec, file_type, exec_type, vendor_file_type;
+init_daemon_domain(hal_touchfeature_xiaomi_default)
+
+hal_server_domain(hal_touchfeature_xiaomi_default, hal_touchfeature_xiaomi)
+
+hal_attribute_service(hal_touchfeature_xiaomi, hal_touchfeature_xiaomi_service)
+
+binder_call(hal_touchfeature_xiaomi_default, system_server)

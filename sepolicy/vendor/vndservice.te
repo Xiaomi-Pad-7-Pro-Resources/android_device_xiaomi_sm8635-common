@@ -1,0 +1,3 @@
+type vendor_DisplayFeatureControl_service, vndservice_manager_type;
+type vendor_miclstc_service, vndservice_manager_type;
+type vendor_mistcdisplay_service, vndservice_manager_type;

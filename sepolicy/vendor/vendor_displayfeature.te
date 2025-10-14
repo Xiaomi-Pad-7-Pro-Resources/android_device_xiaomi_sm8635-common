@@ -1,0 +1,9 @@
+type vendor_displayfeature, domain;
+vndbinder_use(vendor_displayfeature)
+
+hal_client_domain(vendor_displayfeature, vendor_hal_displayfeature_xiaomi)
+
+type vendor_displayfeature_exec, file_type, exec_type, vendor_file_type;
+init_daemon_domain(vendor_displayfeature)
+
+add_service(vendor_displayfeature, vendor_DisplayFeatureControl_service)

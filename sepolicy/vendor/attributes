@@ -1,7 +1,14 @@
 # Camera
-attribute vendor_hal_camerapostproc_xiaomi;
-attribute vendor_hal_camerapostproc_xiaomi_client;
-attribute vendor_hal_camerapostproc_xiaomi_server;
+vendor_hal_attribute(camerapostproc_xiaomi)
 
-# Media
-hal_attribute(dms)
+# Displayfeature
+vendor_hal_attribute(displayfeature_xiaomi)
+
+# Dolby
+hal_attribute(aidl_dms)
+
+# Sensors
+vendor_hal_attribute(citsensorservice_xiaomi)
+
+# Touchfeature
+hal_attribute(touchfeature_xiaomi)

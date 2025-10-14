@@ -1,0 +1,16 @@
+type hal_aidl_dms_default, domain;
+binder_use(hal_aidl_dms_default)
+
+type hal_aidl_dms_default_exec, file_type, exec_type, vendor_file_type;
+init_daemon_domain(hal_aidl_dms_default)
+
+hal_server_domain(hal_aidl_dms_default, hal_aidl_dms)
+
+hal_attribute_service(hal_aidl_dms, hal_aidl_dms_service)
+
+binder_call(hal_aidl_dms_default, hal_audio_default)
+
+allow hal_aidl_dms_default vendor_data_file:dir rw_dir_perms;
+allow hal_aidl_dms_default vendor_data_file:file create_file_perms;
+
+set_prop(hal_aidl_dms_default, vendor_audio_prop)

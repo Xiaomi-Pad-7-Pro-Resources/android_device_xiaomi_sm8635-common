@@ -1,3 +1,13 @@
 add_service(hal_graphics_composer_default, vendor_miclstc_service)
 add_service(hal_graphics_composer_default, vendor_mistcdisplay_service)
+binder_call(hal_graphics_composer_default, vendor_hal_displayfeature_xiaomi_default)
+
+hal_attribute_service(hal_graphics_composer, vendor_hal_hwcextension_xiaomi_service)
+hal_client_domain(hal_graphics_composer_default, vendor_hal_displayfeature_xiaomi)
+
+allow hal_graphics_composer_default vendor_displayfeature_device:chr_file r_file_perms;
+allow hal_graphics_composer_default vendor_sysfs_displayfeature:dir { read open search };
+allow hal_graphics_composer_default vendor_sysfs_displayfeature:file { read write open };
+
+get_prop(hal_graphics_composer_default, vendor_displayfeature_prop)
 set_prop(hal_graphics_composer_default, vendor_display_prop)

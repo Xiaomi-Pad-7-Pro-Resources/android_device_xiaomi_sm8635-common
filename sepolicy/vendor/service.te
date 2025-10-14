@@ -1,0 +1,19 @@
+# Camera
+type hal_aidlbgservice_service, protected_service, service_manager_type, hal_service_type;
+type hal_camera_aon_service, protected_service, service_manager_type, hal_service_type;
+type hal_dynamic_camera_service, protected_service, service_manager_type, hal_service_type;
+
+# Display
+type vendor_hal_hwcextension_xiaomi_service, protected_service, service_manager_type, hal_service_type;
+
+# Displayfeature
+type vendor_hal_displayfeature_xiaomi_service, protected_service, service_manager_type, hal_service_type;
+
+# Dolby
+type hal_aidl_dms_service, protected_service, service_manager_type, hal_service_type;
+
+# Sensors
+type vendor_hal_citsensorservice_xiaomi_service, protected_service, service_manager_type, hal_service_type;
+
+# Touchfeature
+type hal_touchfeature_xiaomi_service, protected_service, service_manager_type, hal_service_type;

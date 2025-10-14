@@ -1,0 +1,7 @@
+# Audio
+ro.chipname             u:object_r:exported_system_prop:s0
+ro.mediatek.platform    u:object_r:exported_system_prop:s0
+
+# Batterysecret
+ro.product.locale.region      u:object_r:exported_system_prop:s0
+ro.product.locale.language    u:object_r:exported_system_prop:s0

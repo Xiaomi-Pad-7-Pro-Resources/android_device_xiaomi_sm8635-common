@@ -1,0 +1,12 @@
+type tp_report_debug, domain;
+type tp_report_debug_exec, file_type, exec_type, vendor_file_type;
+
+init_daemon_domain(tp_report_debug)
+
+allow tp_report_debug { sysfs_touch_hostprocess touchfeature_device }:{ file chr_file } rw_file_perms;
+allow tp_report_debug input_device:chr_file rw_file_perms;
+allow tp_report_debug proc_tp_file:file { read write open };
+allow tp_report_debug self:capability sys_nice;
+
+rw_dir_file(tp_report_debug, input_device)
+set_prop(tp_report_debug, vendor_tp_debug_prop)

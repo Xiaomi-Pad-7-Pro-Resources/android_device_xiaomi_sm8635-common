@@ -1,1 +1,8 @@
-hal_client_domain(hal_audio_default, hal_dms)
+binder_call(hal_audio_default, hal_aidl_dms_default)
+hal_client_domain(hal_audio_default, hal_aidl_dms)
+
+allow hal_audio_default sound_device:chr_file rw_file_perms;
+allow hal_audio_default vendor_persist_audio_file:dir rw_dir_perms;
+allow hal_audio_default vendor_persist_audio_file:file create_file_perms;
+
+set_prop(hal_audio_default, vendor_audio_prop)
