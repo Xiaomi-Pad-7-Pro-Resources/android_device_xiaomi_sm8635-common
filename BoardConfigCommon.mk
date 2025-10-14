@@ -56,6 +56,9 @@ $(call soong_config_set, android_hardware_audio, run_64bit, true)
 # Bootloader
 TARGET_NO_BOOTLOADER := true
 
+# Display
+TARGET_SCREEN_DENSITY := 345
+
 # Filesystem
 TARGET_FS_CONFIG_GEN := $(COMMON_PATH)/configs/config.fs
 
