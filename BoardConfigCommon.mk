@@ -115,7 +115,7 @@ include vendor/lineage/config/BoardConfigReservedSize.mk
 
 # Platform
 TARGET_BOARD_PLATFORM := pineapple
-TARGET_BOOTLOADER_BOARD_NAME := pineapple
+TARGET_BOOTLOADER_BOARD_NAME ?= pineapple
 
 # Recovery
 BOARD_EXCLUDE_KERNEL_FROM_RECOVERY_IMAGE := true
