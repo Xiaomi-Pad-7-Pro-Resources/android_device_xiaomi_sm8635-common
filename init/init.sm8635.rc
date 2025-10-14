@@ -22,3 +22,9 @@ on post-fs-data
     chown system system /sys/class/backlight/DP1-backlight/max_brightness
     chown system system /sys/class/backlight/DP2-backlight/brightness
     chown system system /sys/class/backlight/DP2-backlight/max_brightness
+
+service touch_report_debug /odm/bin/touch_report_debug
+    class main
+    user root
+    group system
+    oneshot
