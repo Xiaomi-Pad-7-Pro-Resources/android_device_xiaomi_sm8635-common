@@ -12,3 +12,6 @@ ro.bluetooth.leaudio_offload.supported=true
 
 # DPM
 persist.vendor.dpm.feature=11
+
+# WFD
+vendor.wfdservice64=enable
