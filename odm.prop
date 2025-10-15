@@ -63,7 +63,6 @@ ro.vendor.dfps.enable=false
 ro.vendor.display.adaptive_hdr.enable=true
 ro.vendor.display.darkmode_dither.enable=true
 ro.vendor.display.default_fps=60
-ro.vendor.display.dolbyvision.support=true
 ro.vendor.display.dynamic_refresh_rate=120,90,60,50:100,60,5
 ro.vendor.display.fod_monitor_default_fps=120
 ro.vendor.display.framework_thermal_dimming=true
@@ -88,7 +87,6 @@ ro.vendor.gcp.enable=1
 ro.vendor.hbm_backlight.enable=true
 ro.vendor.histogram.enable=true
 ro.vendor.localhbm.enable=false
-ro.vendor.mi_sf.all_scene_dolby_P3.enable=true
 ro.vendor.mi_sf.count_tpidle_times=true
 ro.vendor.mi_sf.support_source_p3_ProjectionScreen=true
 ro.vendor.soft_backlight.enable=true
@@ -115,8 +113,6 @@ vendor.display.use_layer_ext=0
 
 # Media
 debug.config.media.video.ace.support=true
-debug.config.media.video.dolby_vision_GPU_suports=true
-debug.config.media.video.dolby_vision_suports=true
 debug.config.media.video.meeting.support=true
 debug.config.media.video.server.support=true
 debug.config.video.hevchdr10.decode.support=true
@@ -125,7 +121,6 @@ debug.config.video.p3.encode.support=true
 debug.video.codec.capability.apilevel=1
 debug.video.codec.capability.support=13309
 debug.video.wechat.709_encode=true
-persist.vendor.dolby.enable.c2fence=0
 
 # Properties
 ro.product.property_source_order=odm,vendor,product,system_ext,system
@@ -147,7 +142,6 @@ debug.sf.ignore_hwc_physical_display_orientation=true
 debug.sf.set_idle_timer_ms=1100
 ro.surface_flinger.enable_frame_rate_override=false
 ro.surface_flinger.primary_display_orientation=ORIENTATION_270
-ro.vendor.mi_sf.gallery_p3_dolby_opt=true
 ro.vendor.mi_sf.video_or_camera_fps.support=true
 vendor.display.disable_dynamic_sf_idle=1
 
