@@ -327,19 +327,14 @@ PRODUCT_PACKAGES += \
 # WiFi
 PRODUCT_PACKAGES += \
     android.hardware.wifi-service \
-    wpa_cli \
-    wpa_supplicant \
-    wpa_supplicant.conf \
     hostapd \
-    hostapd_cli \
     libwifi-hal-ctrl \
     libwifi-hal-qcom \
-    libwpa_client \
-    libkeystore-engine-wifi-hidl \
-    libkeystore-wifi-hidl \
-    libwifi-hal
+    wpa_supplicant \
+    wpa_supplicant.conf
 
 PRODUCT_COPY_FILES += \
+    frameworks/native/data/etc/android.hardware.wifi.aware.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.wifi.aware.xml \
     frameworks/native/data/etc/android.hardware.wifi.direct.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.wifi.direct.xml \
     frameworks/native/data/etc/android.hardware.wifi.passpoint.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.wifi.passpoint.xml \
     frameworks/native/data/etc/android.hardware.wifi.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.wifi.xml \
