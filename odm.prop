@@ -14,7 +14,6 @@ ro.vendor.audio.custom.interface.support=true
 ro.vendor.audio.dolby.spatial.profile=dynamic
 ro.vendor.audio.fluence.rx.supported.devices=15
 ro.vendor.audio.forte.focus.view=true
-ro.vendor.audio.gain.support=false
 ro.vendor.audio.record.customized.support=true
 ro.vendor.audio.remote.multi.supported.devices=15
 ro.vendor.audio.remote.single.supported.devices=3
@@ -110,6 +109,9 @@ vendor.display.enable_hist_intr=1
 vendor.display.force_tonemapping=1
 vendor.display.idle_time=35
 vendor.display.use_layer_ext=0
+
+# Dolby
+ro.vendor.dolby.dap_bypassed_on_tiny_volume=false
 
 # Media
 debug.config.media.video.ace.support=true

@@ -45,6 +45,9 @@ vendor.mm.enable.qcom_parser=16777215
 # SSR
 persist.vendor.ssr.enable_ramdumps=1
 
+# Surfaceflinger
+debug.sf.enable_hwc_vds=0
+
 # WiFi display
 persist.debug.wfd.enable=1
 persist.sys.wfd.virtual=0
