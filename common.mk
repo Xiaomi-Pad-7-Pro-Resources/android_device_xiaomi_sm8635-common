@@ -172,6 +172,10 @@ PRODUCT_PACKAGES += \
     android.hardware.health-service.qti \
     android.hardware.health-service.qti_recovery
 
+# Hypsys
+PRODUCT_PACKAGES += \
+    xiaomi.system.hypsys.common-service
+
 # Init
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/init/init.sm8635.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/init.sm8635.rc \
