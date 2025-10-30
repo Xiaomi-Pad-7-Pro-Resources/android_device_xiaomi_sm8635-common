@@ -1827,4 +1827,3 @@ vendor/lib64/libmisight.so
 vendor/lib64/libmisops.so
 vendor/lib64/libmispowerop.so
 vendor/lib64/libmisr.so
-vendor/lib64/xiaomi.system.hypsys.common-V1-ndk.so
