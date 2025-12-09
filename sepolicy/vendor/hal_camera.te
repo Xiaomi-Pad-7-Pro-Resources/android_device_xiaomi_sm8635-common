@@ -4,10 +4,13 @@ hal_attribute_service(hal_camera, hal_camera_aon_service)
 hal_attribute_service(hal_camera, hal_dynamic_camera_service)
 hal_attribute_service(hal_camera, hal_camera_service)
 
+allow hal_camera_default { proc_pressure_cpu proc_pressure_io proc_pressure_mem }:file r_file_perms;
 allow hal_camera_default self:capability ipc_lock;
+allow hal_camera_default sysfs:file r_file_perms;
 allow hal_camera_default sysfs_thermal:file write;
 allow hal_camera_default vendor_camera_data_file:sock_file rw_file_perms;
 allow hal_camera_default vendor_displayfeature_device:chr_file { ioctl read open };
+allow hal_camera_default vendor_sysfs_camera:file write;
 
 get_prop(hal_camera_default, exported_system_prop)
 set_prop(hal_camera_default, vendor_camera_p3enable_prop)
