@@ -90,7 +90,6 @@ blob_fixups: blob_fixups_user_type = {
         'vendor/lib64/com.qti.camx.chiiqutils.so',
         'vendor/lib64/com.qti.chiusecaseselector.so',
         'vendor/lib64/com.qti.feature2.afbrckt.so',
-        'vendor/lib64/com.qti.feature2.anchorsync.so',
         'vendor/lib64/com.qti.feature2.demux.so',
         'vendor/lib64/com.qti.feature2.derivedoffline.so',
         'vendor/lib64/com.qti.feature2.fusion.so',
@@ -189,12 +188,38 @@ blob_fixups: blob_fixups_user_type = {
         'vendor/lib64/liblistensoundmodel2vendor.so',
     ): blob_fixup()
         .replace_needed('libtensorflowlite_c.so', 'libtensorflowlite_c_vendor.so'),
+    (
+        'odm/bin/hw/vendor.xiaomi.sensor.citsensorservice.aidl',
+        'odm/lib64/hw/displayfeature.default.so',
+        'vendor/bin/hw/vendor.qti.camera.provider-service_64',
+        'vendor/bin/hw/vendor.qti.hardware.display.composer-service',
+        'vendor/bin/poweropt-service',
+        'vendor/bin/qvrdatauploader',
+        'vendor/lib64/libaodoptfeature.so',
+        'vendor/lib64/libapengine.so',
+        'vendor/lib64/libaudiocloudctrl.so',
+        'vendor/lib64/libdpps.so',
+        'vendor/lib64/libgamepoweroptfeature.so',
+        'vendor/lib64/liblearningmodule.so',
+        'vendor/lib64/libmicamera_aidl_provider.so',
+        'vendor/lib64/liboffscreenpoweroptfeature.so',
+        'vendor/lib64/libpowercallback.so',
+        'vendor/lib64/libpowercore.so',
+        'vendor/lib64/libpsmoptfeature.so',
+        'vendor/lib64/libsnapdragoncolor-manager.so',
+        'vendor/lib64/libstandbyfeature.so',
+        'vendor/lib64/libvideooptfeature.so',
+    ): blob_fixup()
+        .replace_needed('libtinyxml2.so', 'libtinyxml2_1.so'),
     'system_ext/lib64/vendor.qti.hardware.qccsyshal@1.2-halimpl.so': blob_fixup()
         .replace_needed('libprotobuf-cpp-full.so', 'libprotobuf-cpp-full-21.7.so'),
     'vendor/etc/ueventd.rc': blob_fixup()
         .add_line_if_missing('\n# Charger\n/sys/class/qcom-battery     night_charging            0660    system  system'),
     'vendor/lib64/c2.dolby.client.so': blob_fixup()
         .add_needed('dolbycodec_shim.so'),
+    'vendor/lib64/com.qti.feature2.anchorsync.so': blob_fixup()
+        .replace_needed('android.hardware.graphics.allocator-V1-ndk.so', 'android.hardware.graphics.allocator-V2-ndk.so')
+        .replace_needed('libtinyxml2.so', 'libtinyxml2_1.so'),
     'vendor/lib64/libmicamera_hal_core.so': blob_fixup()
         .add_needed('libui_shim.so'),
     'vendor/lib64/vendor.libdpmframework.so': blob_fixup()
