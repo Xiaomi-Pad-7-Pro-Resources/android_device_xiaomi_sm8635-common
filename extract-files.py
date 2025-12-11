@@ -183,6 +183,12 @@ blob_fixups: blob_fixups_user_type = {
         'vendor/bin/hw/vendor.dolby_3_12.media.c2@1.0-service',
     ): blob_fixup()
         .replace_needed('libutils.so', 'libutils_vendor.so'),
+    (
+        'vendor/lib64/libVoiceSdk.so',
+        'vendor/lib64/libcapiv2uvvendor.so',
+        'vendor/lib64/liblistensoundmodel2vendor.so',
+    ): blob_fixup()
+        .replace_needed('libtensorflowlite_c.so', 'libtensorflowlite_c_vendor.so'),
     'system_ext/lib64/vendor.qti.hardware.qccsyshal@1.2-halimpl.so': blob_fixup()
         .replace_needed('libprotobuf-cpp-full.so', 'libprotobuf-cpp-full-21.7.so'),
     'vendor/etc/ueventd.rc': blob_fixup()
