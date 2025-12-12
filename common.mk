@@ -96,7 +96,11 @@ PRODUCT_PACKAGES += \
     android.hardware.boot-service.qti \
     android.hardware.boot-service.qti.recovery
 
+# Blur
+TARGET_ENABLE_BLUR := true
+
 # Camera
+TARGET_BUILD_DEVICE_AS_WEBCAM := true
 PRODUCT_PACKAGES += \
     android.hardware.camera.device-V1-ndk.vendor \
     android.hardware.camera.metadata-V2-ndk.vendor
@@ -121,6 +125,9 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     android.hardware.graphics.composer3-V2-ndk.vendor \
     vendor.qti.hardware.display.composer3-V1-ndk.vendor
+
+# Disable Matlog
+TARGET_DISABLE_MATLOG := true
 
 # Dolby
 PRODUCT_PACKAGES += \
