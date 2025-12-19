@@ -22,6 +22,9 @@
 /(vendor|system/vendor)/bin/hw/vendor\.xiaomi\.hardware\.displayfeature_aidl-service    u:object_r:vendor_hal_displayfeature_xiaomi_default_exec:s0
 /sys/devices/virtual/mi_display/disp_feature/disp-DSI-+[0-1](/.*)?                      u:object_r:vendor_sysfs_displayfeature:s0
 
+# Hypsys
+/vendor/bin/hw/xiaomi\.system\.hypsys\.common-service    u:object_r:hal_hypsys_vendor_exec:s0
+
 # IR
 /dev/ir_spi    u:object_r:ir_spi_device:s0
 

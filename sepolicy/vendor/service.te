@@ -12,6 +12,9 @@ type vendor_hal_displayfeature_xiaomi_service, protected_service, service_manage
 # Dolby
 type hal_aidl_dms_service, protected_service, service_manager_type, hal_service_type;
 
+# Hypsys
+type hal_hypsys_service, hal_service_type, service_manager_type;
+
 # Sensors
 type vendor_hal_citsensorservice_xiaomi_service, protected_service, service_manager_type, hal_service_type;
 
