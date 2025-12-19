@@ -7,6 +7,9 @@ vendor_hal_attribute(displayfeature_xiaomi)
 # Dolby
 hal_attribute(aidl_dms)
 
+# Mediagather
+hal_attribute(mediaeventgatherservice)
+
 # Sensors
 vendor_hal_attribute(citsensorservice_xiaomi)
 

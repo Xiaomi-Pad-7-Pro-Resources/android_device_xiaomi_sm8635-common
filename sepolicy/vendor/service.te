@@ -15,6 +15,9 @@ type hal_aidl_dms_service, protected_service, service_manager_type, hal_service_
 # Hypsys
 type hal_hypsys_service, hal_service_type, service_manager_type;
 
+# Mediagather
+type hal_mediaeventgatherservice_service, hal_service_type, service_manager_type;
+
 # Sensors
 type vendor_hal_citsensorservice_xiaomi_service, protected_service, service_manager_type, hal_service_type;
 

@@ -1,4 +1,5 @@
 binder_call(hal_audio_default, hal_aidl_dms_default)
+binder_call(hal_audio_default, hal_mediaeventgatherservice_default)
 hal_client_domain(hal_audio_default, hal_aidl_dms)
 
 allow hal_audio_default sound_device:chr_file rw_file_perms;

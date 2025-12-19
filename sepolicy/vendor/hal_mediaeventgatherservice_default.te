@@ -1,0 +1,8 @@
+type hal_mediaeventgatherservice_default, domain;
+binder_use(hal_mediaeventgatherservice_default)
+
+type hal_mediaeventgatherservice_default_exec, file_type, exec_type, vendor_file_type;
+init_daemon_domain(hal_mediaeventgatherservice_default)
+
+hal_attribute_service(hal_mediaeventgatherservice, hal_mediaeventgatherservice_service)
+hal_server_domain(hal_mediaeventgatherservice_default, hal_mediaeventgatherservice)

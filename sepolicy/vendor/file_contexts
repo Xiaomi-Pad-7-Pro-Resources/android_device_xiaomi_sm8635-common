@@ -34,6 +34,9 @@
 # Lights HAL
 /vendor/bin/hw/android\.hardware\.lights-service\.xiaomi    u:object_r:hal_light_default_exec:s0
 
+# Mediagather
+/odm/bin/hw/vendor.xiaomi.hardware.mediaeventgatherservice-service    u:object_r:hal_mediaeventgatherservice_default_exec:s0
+
 # Pen
 /vendor/bin/xiaomi-pen               u:object_r:xiaomi_pen_exec:s0
 
