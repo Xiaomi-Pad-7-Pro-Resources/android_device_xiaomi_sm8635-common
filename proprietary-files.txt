@@ -1,5 +1,5 @@
 ## All proprietary files from this list, unless pinned and noted otherwise,
-## are from Xiaomi Pad 7 Pro (OS3.0.3.0.WOYMIXM).
+## are from Xiaomi Pad 7 Pro (OS3.0.4.0.WOYMIXM).
 
 # ACDBs
 vendor/etc/acdbdata/cliffs_mtp/MTP_cliffs_acdb_cal.acdb

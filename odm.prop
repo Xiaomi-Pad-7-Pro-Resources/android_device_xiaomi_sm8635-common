@@ -1,4 +1,5 @@
 # Audio
+persist.vendor.audio.cinema.support=true
 persist.vendor.audio.effectimplenter=dolby
 persist.vendor.audio.induce_crash_generic=false
 persist.vendor.audio.induce_crash=false
