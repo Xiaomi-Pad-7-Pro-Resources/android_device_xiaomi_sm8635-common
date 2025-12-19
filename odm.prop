@@ -112,6 +112,7 @@ vendor.display.idle_time=35
 vendor.display.use_layer_ext=0
 
 # Dolby
+persist.vendor.dolby.enable.c2fence=0
 ro.vendor.dolby.dap_bypassed_on_tiny_volume=false
 
 # Media

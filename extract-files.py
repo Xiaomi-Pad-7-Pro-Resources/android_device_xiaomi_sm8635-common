@@ -172,17 +172,26 @@ blob_fixups: blob_fixups_user_type = {
         'vendor/lib64/libmcs.so',
     ): blob_fixup()
         .replace_needed('libaudioroute.so', 'libaudioroute-v34.so'),
-    'vendor/etc/vintf/manifest/c2_manifest_vendor.xml': blob_fixup()
-        .regex_replace('.+DOLBY.+\n', ''),
+    (
+        'vendor/lib64/c2.dolby.hevc.dec.so',
+        'vendor/lib64/c2.dolby.hevc.sec.dec.so',
+        'vendor/lib64/libqcodec2_core.so',
+    ): blob_fixup()
+        .add_needed('libcodec2_shim.so'),
+    (
+        'vendor/bin/hw/dolbycodec2',
+        'vendor/bin/hw/vendor.dolby_3_12.media.c2@1.0-service',
+    ): blob_fixup()
+        .replace_needed('libutils.so', 'libutils_vendor.so'),
+    'vendor/etc/ueventd.rc': blob_fixup()
+        .add_line_if_missing('\n# Charger\n/sys/class/qcom-battery     night_charging            0660    system  system'),
+    'vendor/lib64/c2.dolby.client.so': blob_fixup()
+        .add_needed('dolbycodec_shim.so'),
     'vendor/lib64/libmicamera_hal_core.so': blob_fixup()
         .add_needed('libui_shim.so'),
-    'vendor/lib64/libqcodec2_core.so': blob_fixup()
-        .add_needed('libcodec2_shim.so'),
     'vendor/lib64/vendor.libdpmframework.so': blob_fixup()
         .add_needed('libbinder_shim.so')
         .add_needed('libhidlbase_shim.so'),
-    'vendor/etc/ueventd.rc' : blob_fixup()
-        .add_line_if_missing('\n# Charger\n/sys/class/qcom-battery     night_charging            0660    system  system')
 }  # fmt: skip
 
 module = ExtractUtilsModule(
