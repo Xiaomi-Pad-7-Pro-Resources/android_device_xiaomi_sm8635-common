@@ -96,6 +96,13 @@
         </interface>
     </hal>
     <hal format="aidl" optional="true">
+        <name>vendor.xiaomi.hardware.mediaeventgatherservice</name>
+        <interface>
+            <name>IMediaGather</name>
+            <instance>default</instance>
+        </interface>
+    </hal>
+    <hal format="aidl" optional="true">
         <name>vendor.xiaomi.hardware.micharge</name>
         <version>2</version>
         <interface>

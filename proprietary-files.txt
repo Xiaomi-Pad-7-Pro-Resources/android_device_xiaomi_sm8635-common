@@ -1221,6 +1221,12 @@ vendor/etc/media_profiles_cliffs_v1.xml
 vendor/etc/media_profiles_muyu.xml
 vendor/etc/media_profiles_uke.xml
 
+# Mediagather
+odm/bin/hw/vendor.xiaomi.hardware.mediaeventgatherservice-service
+odm/etc/init/vendor.xiaomi.hardware.mediaeventgatherservice.rc
+odm/etc/vintf/manifest/vendor.xiaomi.hardware.mediaeventgatherservice.xml
+odm/lib64/vendor.xiaomi.hardware.mediaeventgatherservice-V1-ndk.so
+
 # Memory
 vendor/lib64/libvmmem.so
 
@@ -1819,7 +1825,6 @@ vendor/lib64/vendor.qti.hardware.wifidisplaysession@1.0.so;MODULE_SUFFIX=_vendor
 vendor/lib64/vendor.qti.hardware.wifidisplaysessionl@1.0-halimpl.so
 
 # Xiaomi
-odm/lib64/vendor.xiaomi.hardware.mediaeventgatherservice-V1-ndk.so
 vendor/lib64/libMiVDR.so
 vendor/lib64/libmips.so
 vendor/lib64/libmisfpsop.so
