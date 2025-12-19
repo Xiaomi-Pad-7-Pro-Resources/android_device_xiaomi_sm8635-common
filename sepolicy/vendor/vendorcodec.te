@@ -1,0 +1,10 @@
+type vendorcodec, domain;
+hwbinder_use(vendorcodec)
+
+type vendorcodec_exec, file_type, exec_type, vendor_file_type;
+init_daemon_domain(vendorcodec)
+
+hal_server_domain(vendorcodec, hal_codec2)
+binder_call(vendorcodec, mediacodec)
+
+get_prop(vendorcodec, hwservicemanager_prop)

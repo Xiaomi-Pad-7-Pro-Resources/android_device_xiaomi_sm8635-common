@@ -32,7 +32,9 @@
 /vendor/bin/hw/android\.hardware\.lights-service\.xiaomi    u:object_r:hal_light_default_exec:s0
 
 # Media
+/vendor/bin/hw/dolbycodec2                                   u:object_r:vendorcodec_exec:s0
 /vendor/bin/hw/vendor\.dolby\.dms\.service                   u:object_r:hal_aidl_dms_default_exec:s0
+/vendor/bin/hw/vendor\.dolby_3_12\.media\.c2@1\.0-service    u:object_r:mediacodec_exec:s0
 
 # Mediagather
 /odm/bin/hw/vendor.xiaomi.hardware.mediaeventgatherservice-service    u:object_r:hal_mediaeventgatherservice_default_exec:s0
