@@ -1,0 +1,2 @@
+# Ozo
+type hal_ozonotify_hwservice, hwservice_manager_type;

@@ -31,6 +31,9 @@
 # Lights HAL
 /vendor/bin/hw/android\.hardware\.lights-service\.xiaomi    u:object_r:hal_light_default_exec:s0
 
+# Ozo
+/(vendor|system/vendor)/bin/hw/vendor\.ozoaudio\.notify@1\.0-service    u:object_r:hal_ozonotify_default_exec:s0
+
 # Pen
 /vendor/bin/xiaomi-pen               u:object_r:xiaomi_pen_exec:s0
 

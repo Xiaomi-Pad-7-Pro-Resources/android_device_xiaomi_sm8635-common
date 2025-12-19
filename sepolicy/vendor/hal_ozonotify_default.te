@@ -1,0 +1,8 @@
+type hal_ozonotify_default, domain;
+hal_server_domain(hal_ozonotify_default, hal_ozonotify)
+
+type hal_ozonotify_default_exec, file_type, exec_type, vendor_file_type;
+init_daemon_domain(hal_ozonotify_default)
+
+hal_attribute_hwservice(hal_ozonotify, hal_ozonotify_hwservice)
+hal_attribute_service(hal_ozonotify, hal_ozonotify_service)
