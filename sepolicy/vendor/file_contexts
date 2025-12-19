@@ -28,11 +28,11 @@
 # IR
 /dev/ir_spi    u:object_r:ir_spi_device:s0
 
-# Media
-/vendor/bin/hw/vendor\.dolby\.dms\.service                   u:object_r:hal_aidl_dms_default_exec:s0
-
 # Lights HAL
 /vendor/bin/hw/android\.hardware\.lights-service\.xiaomi    u:object_r:hal_light_default_exec:s0
+
+# Media
+/vendor/bin/hw/vendor\.dolby\.dms\.service                   u:object_r:hal_aidl_dms_default_exec:s0
 
 # Mediagather
 /odm/bin/hw/vendor.xiaomi.hardware.mediaeventgatherservice-service    u:object_r:hal_mediaeventgatherservice_default_exec:s0
