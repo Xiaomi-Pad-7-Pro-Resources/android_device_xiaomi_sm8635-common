@@ -162,7 +162,7 @@ class PenService : Service() {
             Settings.System.putString(contentResolver, MIN_REFRESH_RATE, "120.0")
             disablePenEvents()
             if (!lastOverrideRefreshRateStatus) registerOverrideRefreshRate()
-        } else if (!isPenConnected) {
+        } else if (!isPenConnected && lastOverrideRefreshRateStatus) {
             Settings.System.putString(contentResolver, PEAK_REFRESH_RATE, "0.0")
             Settings.System.putString(contentResolver, MIN_REFRESH_RATE, "0.0")
             if(lastOverrideRefreshRateStatus) unregisterOverrideRefreshRate()
