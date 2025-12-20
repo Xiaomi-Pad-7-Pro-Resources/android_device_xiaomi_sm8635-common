@@ -65,7 +65,7 @@ vendor/lib/rfsa/adsp/libQnnHtpV73Skel.so
 vendor/lib/rfsa/adsp/libQnnHtpV75.so
 vendor/lib/rfsa/adsp/libQnnHtpV75Skel.so
 vendor/lib/rfsa/adsp/libQnnSaver.so;MODULE_SUFFIX=_adsp
-vendor/lib/rfsa/adsp/libQnnSystem.so
+vendor/lib/rfsa/adsp/libQnnSystem.so;MODULE_SUFFIX=_adsp
 vendor/lib/rfsa/adsp/libSnpeHtpV73Skel.so
 vendor/lib/rfsa/adsp/libSnpeHtpV75Skel.so
 vendor/lib/rfsa/adsp/libadsp_jpege_skel.so
