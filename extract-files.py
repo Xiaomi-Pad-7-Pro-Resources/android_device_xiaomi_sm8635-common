@@ -216,6 +216,8 @@ blob_fixups: blob_fixups_user_type = {
         .add_line_if_missing('\n# Charger\n/sys/class/qcom-battery     night_charging            0660    system  system'),
     'system_ext/lib64/libwfdcommonutils.so': blob_fixup()
         .remove_needed('libheif.so'),
+    'system_ext/lib64/libwfdservice.so': blob_fixup()
+        .replace_needed('android.media.audio.common.types-V4.cpp.so', 'android.media.audio.common.types-V5-cpp.so'),
     'vendor/lib64/c2.dolby.client.so': blob_fixup()
         .add_needed('dolbycodec_shim.so'),
     'vendor/lib64/com.qti.feature2.anchorsync.so': blob_fixup()
