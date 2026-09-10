@@ -54,6 +54,7 @@ lib_fixups: lib_fixups_user_type = {
         'android.hardware.camera.device-V1-ndk',
         'android.hardware.camera.metadata-V2-ndk',
         'android.hardware.graphics.composer3-V2-ndk',
+        'libheif',
         'vendor.qti.hardware.display.composer3-V1-ndk',
     ): lib_fixup_remove,
 }
@@ -213,6 +214,8 @@ blob_fixups: blob_fixups_user_type = {
         .replace_needed('libprotobuf-cpp-full.so', 'libprotobuf-cpp-full-21.7.so'),
     'vendor/etc/ueventd.rc': blob_fixup()
         .add_line_if_missing('\n# Charger\n/sys/class/qcom-battery     night_charging            0660    system  system'),
+    'system_ext/lib64/libwfdcommonutils.so': blob_fixup()
+        .remove_needed('libheif.so'),
     'vendor/lib64/c2.dolby.client.so': blob_fixup()
         .add_needed('dolbycodec_shim.so'),
     'vendor/lib64/com.qti.feature2.anchorsync.so': blob_fixup()
