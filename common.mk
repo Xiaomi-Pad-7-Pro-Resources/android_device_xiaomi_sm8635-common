@@ -221,10 +221,7 @@ PRODUCT_PACKAGES += \
     SystemUIOverlayCommon \
     SettingsOverlayCommon \
     WifiResCommon_Sys \
-    WifiResCommonMainline_Sys \
     WifiResMainlineTarget_spf \
-    WifiResTarget_sm7675P \
-    WifiResTarget_sm7675PGL \
     WifiResTarget_sm8635
 
 # Partitions

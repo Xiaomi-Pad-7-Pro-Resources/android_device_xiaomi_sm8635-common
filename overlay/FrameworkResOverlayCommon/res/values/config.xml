@@ -1,29 +1,31 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--
-/*
-** Copyright 2009, The Android Open Source Project
-**
-** Licensed under the Apache License, Version 2.0 (the "License");
-** you may not use this file except in compliance with the License.
-** You may obtain a copy of the License at
-**
-**     http://www.apache.org/licenses/LICENSE-2.0
-**
-** Unless required by applicable law or agreed to in writing, software
-** distributed under the License is distributed on an "AS IS" BASIS,
-** WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-** See the License for the specific language governing permissions and
-** limitations under the License.
-*/
+     SPDX-FileCopyrightText: The LineageOS Project
+     SPDX-License-Identifier: Apache-2.0
 -->
+<resources>
+    <!-- Flag indicating whether we should enable the automatic brightness.
+         Software implementation will be used if config_hardware_auto_brightness_available is not set -->
+    <bool name="config_automatic_brightness_available">true</bool>
 
-<!-- These resources are around just to allow their values to be customized
-     for different hardware and product builds.  Do not translate.
+    <!-- Fast brightness animation ramp rate in brightness units per second-->
+    <integer name="config_brightness_ramp_rate_fast">4932</integer>
 
-     NOTE: The naming convention is "config_camelCaseValue". Some legacy
-     entries do not follow the convention, but all new entries should. -->
+    <!-- Slow brightness animation ramp rate in brightness units per second-->
+    <integer name="config_brightness_ramp_rate_slow">3946</integer>
 
-<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <!-- If this is true, the screen will come on when you unplug usb/power/whatever. -->
+    <bool name="config_unplugTurnsOnScreen">true</bool>
+
+    <!-- Indicate whether closing the lid causes the device to go to sleep and opening
+         it causes the device to wake up.
+         The default is false. -->
+    <bool name="config_lidControlsSleep">true</bool>
+
+    <!-- Boolean indicating whether the HWC setColorTransform function can be performed efficiently
+         in hardware. -->
+    <bool name="config_setColorTransformAccelerated">true</bool>
+
     <!-- Indicate available ColorDisplayManager.COLOR_MODE_xxx. -->
     <integer-array name="config_availableColorModes">
         <item>0</item>
@@ -31,251 +33,55 @@
         <item>3</item>
     </integer-array>
 
-    <!-- Flag indicating whether we should enable the automatic brightness.
-         Software implementation will be used if config_hardware_auto_brightness_available is not set -->
-    <bool name="config_automatic_brightness_available">true</bool>
+    <!-- Indicate whether to allow the device to suspend when the screen is off
+         due to the proximity sensor.  This resource should only be set to true
+         if the sensor HAL correctly handles the proximity sensor as a wake-up source.
+         Otherwise, the device may fail to wake out of suspend reliably.
+         The default is false. -->
+    <bool name="config_suspendWhenScreenOffDueToProximity">true</bool>
 
-    <!-- Whether UI for multi user should be shown -->
-    <bool name="config_enableMultiUserUI">true</bool>
+    <!-- Is the notification LED intrusive? Used to decide if there should be a disable option -->
+    <bool name="config_intrusiveNotificationLed">true</bool>
 
-    <!-- Boolean indicating whether the HWC setColorTransform function can be performed efficiently
-         in hardware. -->
-    <bool name="config_setColorTransformAccelerated">true</bool>
+    <!-- Minimum screen brightness setting allowed by power manager.
+         -2 is invalid so setting will resort to int value specified above.
+         Set this to 0.0 to allow screen to go to minimal brightness.
+         The user is forbidden from setting the brightness below this level. -->
+    <item format="float" name="config_screenBrightnessSettingMinimumFloat" type="dimen">0.001709819</item>
 
-    <!-- Whether a software navigation bar should be shown. NOTE: in the future this may be
-         autodetected from the Configuration. -->
-    <bool name="config_showNavigationBar">true</bool>
+    <!-- Maximum screen brightness allowed by the power manager.
+         -2 is invalid so setting will resort to int value specified above.
+         Set this to 1.0 for maximum brightness range.
+         The user is forbidden from setting the brightness above this level. -->
+    <item format="float" name="config_screenBrightnessSettingMaximumFloat" type="dimen">1.0</item>
 
-    <!-- Whether the Unprocessed audio source supports the required frequency range and level -->
-    <bool name="config_supportAudioSourceUnprocessed">true</bool>
-
-    <!-- If this is true, the screen will come on when you unplug usb/power/whatever. -->
-    <bool name="config_unplugTurnsOnScreen">true</bool>
-
-    <!-- The default refresh rate for a given device. Change this value to set a higher default
-         refresh rate. If the hardware composer on the device supports display modes with a higher
-         refresh rate than the default value specified here, the framework may use those higher
-         refresh rate modes if an app chooses one by setting preferredDisplayModeId or calling
-         setFrameRate().
-         If a non-zero value is set for config_defaultPeakRefreshRate, then
-         config_defaultRefreshRate may be set to 0, in which case the value set for
-         config_defaultPeakRefreshRate will act as the default frame rate. -->
-    <integer name="config_defaultRefreshRate">0</integer>
-
-    <!-- The default peak refresh rate for a given device. Change this value if you want to prevent
-         the framework from using higher refresh rates, even if display modes with higher refresh
-         rates are available from hardware composer. Only has an effect if the value is
-         non-zero. -->
-    <integer name="config_defaultPeakRefreshRate">144</integer>
-
-    <!--  Maximum number of supported users -->
-    <integer name="config_multiuserMaximumUsers">4</integer>
+    <!-- Default screen brightness setting set.
+         -2 is invalid so setting will resort to int value specified above.
+         Must be in the range specified by minimum and maximum. -->
+    <item format="float" name="config_screenBrightnessSettingDefaultFloat" type="dimen">0.074743524</item>
 
     <!-- Screen brightness used to dim the screen while dozing in a very low power state.
          May be less than the minimum allowed brightness setting
          that can be set by the user. -->
     <integer name="config_screenBrightnessDoze">17</integer>
 
-    <!-- ComponentName of a dream to show whenever the system would otherwise have
-         gone to sleep.  When the PowerManager is asked to go to sleep, it will instead
-         try to start this dream if possible.  The dream should typically call startDozing()
-         to put the display into a low power state and allow the application processor
-         to be suspended.  When the dream ends, the system will go to sleep as usual.
-         Specify the component name or an empty string if none.
+    <!-- Stability requirements in milliseconds for accepting a new brightness level.  This is used
+         for debouncing the light sensor.  Different constants are used to debounce the light sensor
+         when adapting to brighter or darker environments.  This parameter controls how quickly
+         brightness changes occur in response to an observed change in light level that exceeds the
+         hysteresis threshold. -->
+    <integer name="config_autoBrightnessBrighteningLightDebounce">1000</integer>
+    <integer name="config_autoBrightnessDarkeningLightDebounce">1000</integer>
 
-         Note that doze dreams are not subject to the same start conditions as ordinary dreams.
-         Doze dreams will run whenever the power manager is in a dozing state. -->
-    <string name="config_dozeComponent">com.android.systemui/com.android.systemui.doze.DozeService</string>
+    <!-- The maximum range of gamma adjustment possible using the screen
+         auto-brightness adjustment setting. -->
+    <fraction name="config_autoBrightnessAdjustmentMaxGamma">100.0%</fraction>
 
-    <!-- Control whether the always on display mode is available. This should only be enabled on
-         devices where the display has been tuned to be power efficient in DOZE and/or DOZE_SUSPEND
-         states. -->
-    <bool name="config_dozeAlwaysOnDisplayAvailable">true</bool>
-
-    <!-- Control whether the always on display mode is enabled by default. This value will be used
-         during initialization when the setting is still null. -->
-    <bool name="config_dozeAlwaysOnEnabled">false</bool>
-
-    <!-- Power Management: Specifies whether to decouple the auto-suspend state of the
-         device from the display on/off state.
-
-         When false, autosuspend_disable() will be called before the display is turned on
-         and autosuspend_enable() will be called after the display is turned off.
-         This mode provides best compatibility for devices using legacy power management
-         features such as early suspend / late resume.
-
-         When true, autosuspend_display() and autosuspend_enable() will be called
-         independently of whether the display is being turned on or off.  This mode
-         enables the power manager to suspend the application processor while the
-         display is on.
-
-         This resource should be set to "true" when a doze component has been specified
-         to maximize power savings but not all devices support it.
-
-         Refer to autosuspend.h for details.
-    -->
-    <bool name="config_powerDecoupleAutoSuspendModeFromDisplay">true</bool>
-
-    <!-- When true use the linux /dev/input/event subsystem to detect the switch changes
-         on the headphone/microphone jack. When false use the older uevent framework. -->
-    <bool name="config_useDevInputEventForAudioJack">true</bool>
-
-    <!-- Whether WiFi display is supported by this device.
-         There are many prerequisites for this feature to work correctly.
-         Here are a few of them:
-         * The WiFi radio must support WiFi P2P.
-         * The WiFi radio must support concurrent connections to the WiFi display and
-           to an access point.
-         * The Audio Flinger audio_policy.conf file must specify a rule for the "r_submix"
-           remote submix module.  This module is used to record and stream system
-           audio output to the WiFi display encoder in the media server.
-         * The remote submix module "audio.r_submix.default" must be installed on the device.
-         * The device must be provisioned with HDCP keys (for protected content).
-    -->
-    <bool name="config_enableWifiDisplay">true</bool>
-
-    <!-- Set to true if the wifi display supports compositing content stored
-         in gralloc protected buffers.  For this to be true, there must exist
-         a protected hardware path for surface flinger to composite and send
-         protected buffers to the wifi display video encoder.
-
-         If this flag is false, we advise applications not to use protected
-         buffers (if possible) when presenting content to a wifi display because
-         the content may be blanked.
-
-         This flag controls whether the {@link Display#FLAG_SUPPORTS_PROTECTED_BUFFERS}
-         flag is set for wifi displays.
-    -->
-    <bool name="config_wifiDisplaySupportsProtectedBuffers">true</bool>
-
-    <!-- Whether device supports double tap to wake -->
-    <bool name="config_supportDoubleTapWake">true</bool>
-
-    <!-- Doze: should the TYPE_PICK_UP_GESTURE sensor be used as a pulse signal. -->
-    <bool name="config_dozePulsePickup">true</bool>
-
-    <!-- Array of desired screen brightness in nits corresponding to the lux values
-         in the config_autoBrightnessLevels array. The display brightness is defined as the measured
-         brightness of an all-white image.
-
-         If this is defined then:
-            - config_autoBrightnessLcdBacklightValues should not be defined
-            - config_screenBrightnessNits must be defined
-            - config_screenBrightnessBacklight must be defined
-
-         This array should have size one greater than the size of the config_autoBrightnessLevels
-         array. The brightness values must be non-negative and non-decreasing. This must be
-         overridden in platform specific overlays -->
-    <array name="config_autoBrightnessDisplayValuesNits">
-        <item>3.5</item>
-        <item>4.5</item>
-        <item>6.0</item>
-        <item>15.0</item>
-        <item>21.0</item>
-        <item>27.0</item>
-        <item>36.0</item>
-        <item>52.0</item>
-        <item>71.0</item>
-        <item>87.0</item>
-        <item>97.0</item>
-        <item>98.0</item>
-        <item>98.0</item>
-        <item>98.0</item>
-        <item>99.0</item>
-        <item>99.0</item>
-        <item>100.0</item>
-        <item>100.0</item>
-        <item>100.0</item>
-        <item>101.0</item>
-        <item>101.0</item>
-        <item>102.0</item>
-        <item>103.0</item>
-        <item>103.0</item>
-        <item>103.0</item>
-        <item>106.0</item>
-        <item>108.0</item>
-        <item>110.0</item>
-        <item>112.0</item>
-        <item>114.0</item>
-        <item>116.0</item>
-        <item>118.0</item>
-        <item>119.0</item>
-        <item>122.0</item>
-        <item>123.0</item>
-        <item>125.0</item>
-        <item>128.0</item>
-        <item>130.0</item>
-        <item>131.0</item>
-        <item>134.0</item>
-        <item>136.0</item>
-        <item>137.0</item>
-        <item>140.0</item>
-        <item>142.0</item>
-        <item>144.0</item>
-        <item>169.0</item>
-        <item>196.0</item>
-        <item>222.0</item>
-        <item>248.0</item>
-        <item>270.0</item>
-        <item>300.0</item>
-        <item>320.0</item>
-        <item>335.0</item>
-        <item>400.0</item>
-        <item>412.5</item>
-        <item>425.0</item>
-        <item>437.5</item>
-        <item>450.0</item>
-        <item>462.5</item>
-        <item>475.0</item>
-        <item>487.5</item>
-        <item>500.0</item>
-        <item>512.5</item>
-        <item>525.0</item>
-        <item>537.5</item>
-        <item>550.0</item>
-        <item>562.5</item>
-        <item>575.0</item>
-        <item>587.5</item>
-        <item>600.0</item>
-        <item>612.5</item>
-        <item>625.0</item>
-        <item>637.5</item>
-        <item>650.0</item>
-        <item>662.5</item>
-        <item>675.0</item>
-        <item>687.5</item>
-        <item>700.0</item>
-        <item>702.2</item>
-        <item>706.6</item>
-        <item>711.0</item>
-        <item>715.4</item>
-        <item>719.8</item>
-        <item>724.2</item>
-        <item>728.6</item>
-        <item>733.0</item>
-        <item>737.4</item>
-        <item>741.8</item>
-        <item>746.2</item>
-        <item>750.5</item>
-        <item>755.0</item>
-        <item>759.3</item>
-        <item>763.7</item>
-        <item>768.1</item>
-        <item>790.1</item>
-        <item>800.0</item>
-        <item>800.0</item>
-        <item>800.0</item>
-        <item>800.0</item>
-        <item>800.0</item>
-        <item>800.0</item>
-        <item>800.0</item>
-        <item>800.0</item>
-        <item>800.0</item>
-        <item>800.0</item>
-        <item>800.0</item>
-        <item>800.0</item>
-        <item>800.0</item>
-    </array>
+    <!-- Screen brightness used to dim the screen when the user activity
+         timeout expires.  May be less than the minimum allowed brightness setting
+         that can be set by the user. -->
+    <integer name="config_screenBrightnessDim">15</integer>
+    <item format="float" name="config_screenBrightnessDimFloat" type="dimen">0.000854597</item>
 
     <!-- Array of light sensor lux values to define our levels for auto backlight brightness support.
          The N entries of this array define N + 1 control points as follows:
@@ -407,6 +213,129 @@
         <item>100000</item>
     </integer-array>
 
+    <!-- Array of desired screen brightness in nits corresponding to the lux values
+         in the config_autoBrightnessLevels array. The display brightness is defined as the measured
+         brightness of an all-white image.
+
+         If this is defined then:
+            - config_autoBrightnessLcdBacklightValues should not be defined
+            - config_screenBrightnessNits must be defined
+            - config_screenBrightnessBacklight must be defined
+
+         This array should have size one greater than the size of the config_autoBrightnessLevels
+         array. The brightness values must be non-negative and non-decreasing. This must be
+         overridden in platform specific overlays -->
+    <array name="config_autoBrightnessDisplayValuesNits">
+        <item>3.5</item>
+        <item>4.5</item>
+        <item>6.0</item>
+        <item>15.0</item>
+        <item>21.0</item>
+        <item>27.0</item>
+        <item>36.0</item>
+        <item>52.0</item>
+        <item>71.0</item>
+        <item>87.0</item>
+        <item>97.0</item>
+        <item>98.0</item>
+        <item>98.0</item>
+        <item>98.0</item>
+        <item>99.0</item>
+        <item>99.0</item>
+        <item>100.0</item>
+        <item>100.0</item>
+        <item>100.0</item>
+        <item>101.0</item>
+        <item>101.0</item>
+        <item>102.0</item>
+        <item>103.0</item>
+        <item>103.0</item>
+        <item>103.0</item>
+        <item>106.0</item>
+        <item>108.0</item>
+        <item>110.0</item>
+        <item>112.0</item>
+        <item>114.0</item>
+        <item>116.0</item>
+        <item>118.0</item>
+        <item>119.0</item>
+        <item>122.0</item>
+        <item>123.0</item>
+        <item>125.0</item>
+        <item>128.0</item>
+        <item>130.0</item>
+        <item>131.0</item>
+        <item>134.0</item>
+        <item>136.0</item>
+        <item>137.0</item>
+        <item>140.0</item>
+        <item>142.0</item>
+        <item>144.0</item>
+        <item>169.0</item>
+        <item>196.0</item>
+        <item>222.0</item>
+        <item>248.0</item>
+        <item>270.0</item>
+        <item>300.0</item>
+        <item>320.0</item>
+        <item>335.0</item>
+        <item>400.0</item>
+        <item>412.5</item>
+        <item>425.0</item>
+        <item>437.5</item>
+        <item>450.0</item>
+        <item>462.5</item>
+        <item>475.0</item>
+        <item>487.5</item>
+        <item>500.0</item>
+        <item>512.5</item>
+        <item>525.0</item>
+        <item>537.5</item>
+        <item>550.0</item>
+        <item>562.5</item>
+        <item>575.0</item>
+        <item>587.5</item>
+        <item>600.0</item>
+        <item>612.5</item>
+        <item>625.0</item>
+        <item>637.5</item>
+        <item>650.0</item>
+        <item>662.5</item>
+        <item>675.0</item>
+        <item>687.5</item>
+        <item>700.0</item>
+        <item>702.2</item>
+        <item>706.6</item>
+        <item>711.0</item>
+        <item>715.4</item>
+        <item>719.8</item>
+        <item>724.2</item>
+        <item>728.6</item>
+        <item>733.0</item>
+        <item>737.4</item>
+        <item>741.8</item>
+        <item>746.2</item>
+        <item>750.5</item>
+        <item>755.0</item>
+        <item>759.3</item>
+        <item>763.7</item>
+        <item>768.1</item>
+        <item>790.1</item>
+        <item>800.0</item>
+        <item>800.0</item>
+        <item>800.0</item>
+        <item>800.0</item>
+        <item>800.0</item>
+        <item>800.0</item>
+        <item>800.0</item>
+        <item>800.0</item>
+        <item>800.0</item>
+        <item>800.0</item>
+        <item>800.0</item>
+        <item>800.0</item>
+        <item>800.0</item>
+    </array>
+
     <!-- Array of ambient lux threshold values. This is used for determining hysteresis constraint
          values by calculating the index to use for lookup and then setting the constraint value
          to the corresponding value of the array. The new brightening hysteresis constraint value
@@ -482,62 +411,129 @@
         <item>0</item>
     </integer-array>
 
-    <!-- Minimum screen brightness setting allowed by power manager.
-         -2 is invalid so setting will resort to int value specified above.
-         Set this to 0.0 to allow screen to go to minimal brightness.
-         The user is forbidden from setting the brightness below this level. -->
-    <item format="float" name="config_screenBrightnessSettingMinimumFloat" type="dimen">0.001709819</item>
+    <!-- Whether a software navigation bar should be shown. NOTE: in the future this may be
+         autodetected from the Configuration. -->
+    <bool name="config_showNavigationBar">true</bool>
 
-    <!-- Maximum screen brightness allowed by the power manager.
-         -2 is invalid so setting will resort to int value specified above.
-         Set this to 1.0 for maximum brightness range.
-         The user is forbidden from setting the brightness above this level. -->
-    <item format="float" name="config_screenBrightnessSettingMaximumFloat" type="dimen">1.0</item>
+    <!-- ComponentName of a dream to show whenever the system would otherwise have
+         gone to sleep.  When the PowerManager is asked to go to sleep, it will instead
+         try to start this dream if possible.  The dream should typically call startDozing()
+         to put the display into a low power state and allow the application processor
+         to be suspended.  When the dream ends, the system will go to sleep as usual.
+         Specify the component name or an empty string if none.
 
-    <!-- Default screen brightness setting set.
-         -2 is invalid so setting will resort to int value specified above.
-         Must be in the range specified by minimum and maximum. -->
-    <item format="float" name="config_screenBrightnessSettingDefaultFloat" type="dimen">0.074743524</item>
+         Note that doze dreams are not subject to the same start conditions as ordinary dreams.
+         Doze dreams will run whenever the power manager is in a dozing state. -->
+    <string name="config_dozeComponent" translatable="false">com.android.systemui/com.android.systemui.doze.DozeService</string>
 
-    <!-- Stability requirements in milliseconds for accepting a new brightness level.  This is used
-         for debouncing the light sensor.  Different constants are used to debounce the light sensor
-         when adapting to brighter or darker environments.  This parameter controls how quickly
-         brightness changes occur in response to an observed change in light level that exceeds the
-         hysteresis threshold. -->
-    <integer name="config_autoBrightnessBrighteningLightDebounce">1000</integer>
-    <integer name="config_autoBrightnessDarkeningLightDebounce">1000</integer>
+    <!-- Doze: should the TYPE_PICK_UP_GESTURE sensor be used as a pulse signal. -->
+    <bool name="config_dozePulsePickup">true</bool>
 
-    <!-- Screen brightness used to dim the screen when the user activity
-         timeout expires.  May be less than the minimum allowed brightness setting
-         that can be set by the user. -->
-    <integer name="config_screenBrightnessDim">15</integer>
-    <item format="float" name="config_screenBrightnessDimFloat" type="dimen">0.000854597</item>
+    <!-- Control whether the always on display mode is available. This should only be enabled on
+         devices where the display has been tuned to be power efficient in DOZE and/or DOZE_SUSPEND
+         states. -->
+    <bool name="config_dozeAlwaysOnDisplayAvailable">true</bool>
 
-    <!-- The maximum range of gamma adjustment possible using the screen
-         auto-brightness adjustment setting. -->
-    <fraction name="config_autoBrightnessAdjustmentMaxGamma">100.0%</fraction>
+    <!-- Control whether the always on display mode is enabled by default. This value will be used
+         during initialization when the setting is still null. -->
+    <bool name="config_dozeAlwaysOnEnabled">false</bool>
 
-    <!-- Fast brightness animation ramp rate in brightness units per second-->
-    <integer name="config_brightness_ramp_rate_fast">4932</integer>
+    <!-- Power Management: Specifies whether to decouple the auto-suspend state of the
+         device from the display on/off state.
 
-    <!-- Slow brightness animation ramp rate in brightness units per second-->
-    <integer name="config_brightness_ramp_rate_slow">3946</integer>
+         When false, autosuspend_disable() will be called before the display is turned on
+         and autosuspend_enable() will be called after the display is turned off.
+         This mode provides best compatibility for devices using legacy power management
+         features such as early suspend / late resume.
 
-    <!-- Is the notification LED intrusive? Used to decide if there should be a disable option -->
-    <bool name="config_intrusiveNotificationLed">true</bool>
+         When true, autosuspend_display() and autosuspend_enable() will be called
+         independently of whether the display is being turned on or off.  This mode
+         enables the power manager to suspend the application processor while the
+         display is on.
 
-    <!-- Indicate whether closing the lid causes the device to go to sleep and opening
-         it causes the device to wake up.
-         The default is false. -->
-    <bool name="config_lidControlsSleep">true</bool>
+         This resource should be set to "true" when a doze component has been specified
+         to maximize power savings but not all devices support it.
 
-    <!-- Indicate whether to allow the device to suspend when the screen is off
-         due to the proximity sensor.  This resource should only be set to true
-         if the sensor HAL correctly handles the proximity sensor as a wake-up source.
-         Otherwise, the device may fail to wake out of suspend reliably.
-         The default is false. -->
-    <bool name="config_suspendWhenScreenOffDueToProximity">true</bool>
+         Refer to autosuspend.h for details.
+    -->
+    <bool name="config_powerDecoupleAutoSuspendModeFromDisplay">true</bool>
 
-    <!-- Preferred max refresh rate at keyguard, if supported by the display. -->
-    <integer name="config_keyguardMaxRefreshRate">60</integer>
+    <!--  Maximum number of supported switchable users (excluding Guests & Demo users).
+          Does not include profiles. See {@link UserManager#getMaxSwitchableUsers()} for details.
+
+          Setting to 1 disables multiple switchable users (e.g. secondary users).
+
+          To limit the number of any particular user type (whether switchable or not), set the
+          appropriate maximum in {@link com.android.internal.R.xml#config_user_types}.
+
+         Note: If > 1, it is expected that UserManager.USER_TYPE_FULL_SECONDARY users are supported
+         on the device (at least for testing purposes, even if in practice the UI really only allows
+         other switchable types, such as restricted profiles or guests, to be created).
+         -->
+    <integer name="config_multiuserMaximumUsers">4</integer>
+
+    <!-- Whether UI for multi user should be shown.
+         Note: If true, it is expected that secondary users are supported on the device (at least
+         for testing purposes, even if in practice the UI really only allows other switchable
+         types, such as restricted profiles or guests, to be created).
+         @deprecated  Use config_multiuserMaximumUsers instead.
+         This config will likely be removed in the future; config_multiuserMaximumUsers, which now
+         only applies to full users, not profiles, should be updated accordingly as needed.
+         TODO(b/435521983): Remove this since it's now made redundant by config_multiuserMaximumUsers
+         -->
+    <bool name="config_enableMultiUserUI">true</bool>
+
+    <!-- Whether WiFi display is supported by this device.
+         There are many prerequisites for this feature to work correctly.
+         Here are a few of them:
+         * The WiFi radio must support WiFi P2P.
+         * The WiFi radio must support concurrent connections to the WiFi display and
+           to an access point.
+         * The Audio Server audio_policy_configuration.xml file must specify a rule for
+           the "r_submix" remote submix module.  This module is used to record and stream system
+           audio output to the WiFi display encoder in the media server.
+         * The remote submix module "audio.r_submix.default" must be installed on the device.
+         * The device must be provisioned with HDCP keys (for protected content).
+    -->
+    <bool name="config_enableWifiDisplay">true</bool>
+
+    <!-- When true use the linux /dev/input/event subsystem to detect the switch changes
+         on the headphone/microphone jack. When false use the older uevent framework. -->
+    <bool name="config_useDevInputEventForAudioJack">true</bool>
+
+    <!-- Set to true if the wifi display supports compositing content stored
+         in gralloc protected buffers.  For this to be true, there must exist
+         a protected hardware path for surface flinger to composite and send
+         protected buffers to the wifi display video encoder.
+
+         If this flag is false, we advise applications not to use protected
+         buffers (if possible) when presenting content to a wifi display because
+         the content may be blanked.
+
+         This flag controls whether the {@link Display#FLAG_SUPPORTS_PROTECTED_BUFFERS}
+         flag is set for wifi displays.
+    -->
+    <bool name="config_wifiDisplaySupportsProtectedBuffers">true</bool>
+
+    <!-- Whether device supports double tap to wake -->
+    <bool name="config_supportDoubleTapWake">true</bool>
+
+    <!-- Whether the Unprocessed audio source supports the required frequency range and level -->
+    <bool name="config_supportAudioSourceUnprocessed">true</bool>
+
+    <!-- The default refresh rate for a given device. Change this value to set a higher default
+         refresh rate. If the hardware composer on the device supports display modes with a higher
+         refresh rate than the default value specified here, the framework may use those higher
+         refresh rate modes if an app chooses one by setting preferredDisplayModeId or calling
+         setFrameRate().
+         If a non-zero value is set for config_defaultPeakRefreshRate, then
+         config_defaultRefreshRate may be set to 0, in which case the value set for
+         config_defaultPeakRefreshRate will act as the default frame rate. -->
+    <integer name="config_defaultRefreshRate">0</integer>
+
+    <!-- The default peak refresh rate for a given device. Change this value if you want to prevent
+         the framework from using higher refresh rates, even if display modes with higher refresh
+         rates are available from hardware composer. Only has an effect if the value is
+         non-zero. -->
+    <integer name="config_defaultPeakRefreshRate">144</integer>
 </resources>

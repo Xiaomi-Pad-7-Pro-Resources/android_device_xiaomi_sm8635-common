@@ -1,8 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+     SPDX-FileCopyrightText: The LineageOS Project
+     SPDX-License-Identifier: Apache-2.0
+-->
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="org.lineageos.systemuioverlay.xiaomi">
-    <application android:hasCode="false" />
-    <overlay android:isStatic="true"
-             android:priority="1"
-             android:targetPackage="com.android.systemui"
-             android:targetName="XiaomiSystemUIOverlay" />
+          package="org.lineageos.systemuioverlay.xiaomi">
+    <overlay android:targetPackage="com.android.systemui"
+             android:targetName="XiaomiSystemUIOverlay"
+             android:isStatic="true"
+             android:priority="1" />
 </manifest>
