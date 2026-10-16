@@ -1,10 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!--
+     SPDX-FileCopyrightText: The LineageOS Project
+     SPDX-License-Identifier: Apache-2.0
+-->
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.android.wifi.resources.overlay.target.sm8635">
-    <overlay android:isStatic="true"
-        android:priority="1000"
-        android:requiredSystemPropertyName="ro.soc.model"
-        android:requiredSystemPropertyValue="SM8635"
-        android:targetName="WifiCustomization"
-        android:targetPackage="com.android.wifi.resources"/>
+          package="com.android.wifi.resources.overlay.target.sm8635">
+    <overlay android:targetPackage="com.android.wifi.resources"
+             android:targetName="WifiCustomization"
+             android:isStatic="true"
+             android:priority="1000"
+             android:requiredSystemPropertyName="ro.soc.model"
+             android:requiredSystemPropertyValue="SM8635" />
 </manifest>
