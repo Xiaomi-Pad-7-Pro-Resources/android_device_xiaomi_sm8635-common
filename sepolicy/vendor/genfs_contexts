@@ -1,6 +1,3 @@
-# Battery
-genfscon sysfs /class/qcom-battery    u:object_r:vendor_sysfs_qcom_battery:s0
-
 # Camera
 genfscon sysfs /module/camera/parameters/cam_cci_io_protect    u:object_r:vendor_sysfs_camera:s0
 genfscon sysfs /module/camera/parameters/ife_mqs_node1         u:object_r:vendor_sysfs_camera:s0
