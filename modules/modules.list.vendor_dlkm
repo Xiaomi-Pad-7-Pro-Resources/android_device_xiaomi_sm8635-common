@@ -74,6 +74,6 @@ spcom.ko
 spss_utils.ko
 msm_video.ko
 msm_kgsl.ko
-xiaomi_keyboard_driver.ko
+xiaomi_keyboard.ko
 nanosic_driver.ko
 xiaomi_hall.ko
