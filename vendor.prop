@@ -1,7 +1,10 @@
 # Audio
 aaudio.hw_burst_min_usec=2000
-aaudio.mmap_exclusive_policy=2
-aaudio.mmap_policy=2
+# MMAP playback is opened as PAL_STREAM_ULTRA_LOW_LATENCY, which skips the
+# Dolby processing the speaker tuning relies on: AAudio apps lose most of
+# their bass on the built-in speakers. Use the FastMixer path instead.
+aaudio.mmap_exclusive_policy=1
+aaudio.mmap_policy=1
 af.fast_track_multiplier=1
 audio.deep_buffer.media=true
 audio.offload.video=true
